@@ -13,7 +13,7 @@ Tuy nhiên, bước tiến công nghệ này cũng đem đến những thách th
 
 Để giải quyết những thách thức này, chúng tôi đã phát triển loạt bài hai phần nhằm khám phá các giải pháp thực tế giúp duy trì tính nhất quán thị giác. Trong Phần 1, chúng tôi đi sâu vào kỹ thuật thiết kế prompt và quy trình phát triển nhân vật, chia sẻ các mẫu prompt đã được kiểm chứng mang lại kết quả ổn định với Amazon Nova Canvas và Amazon Nova Reel. [Part 2](https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-2/) sẽ trình bày các kỹ thuật như tinh chỉnh Amazon Nova Canvas để đạt độ nhất quán thị giác vượt trội và kiểm soát nhân vật chính xác.
 
-<div style="display: flex; gap: 8px;">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
   <img src="/images/3-BlogsTranslated/3.1-Blog1/image-1-1-300x169.jpg" alt="Girl running with llama">
   <img src="/images/3-BlogsTranslated/3.1-Blog1/image-2-2-300x169.jpg" alt="Girl running with llama">
   <img src="/images/3-BlogsTranslated/3.1-Blog1/image-3-300x169.jpg" alt="Girl running with llama">

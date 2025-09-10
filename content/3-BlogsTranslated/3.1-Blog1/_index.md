@@ -13,7 +13,7 @@ This technological leap forward, however, presents its own set of challenges. Al
 
 To address these challenges, we’ve developed this two-part series exploring practical solutions for achieving visual consistency. In Part 1, we deep dive into prompt engineering and character development pipelines, sharing tested prompt patterns that deliver reliable, consistent results with Amazon Nova Canvas and Amazon Nova Reel. [Part 2](https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-2/) explores techniques like fine-tuning Amazon Nova Canvas to achieve exceptional visual consistency and precise character control.
 
-<div style="display: flex; gap: 8px;">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
   <img src="/images/3-BlogsTranslated/3.1-Blog1/image-1-1-300x169.jpg" alt="Girl running with llama">
   <img src="/images/3-BlogsTranslated/3.1-Blog1/image-2-2-300x169.jpg" alt="Girl running with llama">
   <img src="/images/3-BlogsTranslated/3.1-Blog1/image-3-300x169.jpg" alt="Girl running with llama">

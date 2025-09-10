@@ -4,122 +4,292 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Build character consistent storyboards using Amazon Nova in Amazon Bedrock – Part 2
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Although careful prompt crafting can yield good results, achieving professional-grade visual consistency often requires adapting the underlying model itself. Building on the prompt engineering and character development approach covered in [Part 1](https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-1/) of this two-part series, we now push the consistency level for specific characters by fine-tuning an [Amazon Nova Canvas](https://aws.amazon.com/ai/generative-ai/nova/creative/) foundation model (FM). Through fine-tuning techniques, creators can instruct the model to maintain precise control over character appearances, expressions, and stylistic elements across multiple scenes.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+In this post, we take an animated short film, [Picchu](https://www.youtube.com/watch?v=vKSaF8NvMiQ), produced by FuzzyPixel from Amazon Web Services (AWS), prepare training data by extracting key character frames, and fine-tune a character-consistent model for the main character Mayu and her mother, so we can quickly generate storyboard concepts for new sequels like the following images.
 
----
+<div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+  <img src="/images/3-BlogsTranslated/3.3-Blog3/image-1-3-300x180.jpg" alt="Girl running with llama">
+  <img src="/images/3-BlogsTranslated/3.3-Blog3/image-2-2-300x180.jpg" alt="Girl running with llama">
+  <img src="/images/3-BlogsTranslated/3.3-Blog3/image-3-1-300x180.jpg" alt="Girl running with llama">
+</div>
 
-## Architecture Guidance
+### Solution overview
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+To implement an automated workflow, we propose the following comprehensive solution architecture that uses AWS services for an end-to-end implementation.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/arch-1024x660.png)
 
-**The solution architecture is now as follows:**
+The workflow consists of the following steps:
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+  1. The user uploads a video asset to an Amazon [Simple Storage Service](http://aws.amazon.com/s3) (Amazon S3) bucket.
+  2. [Amazon Elastic Container Service](http://aws.amazon.com/ecs) (Amazon ECS) is triggered to process the video asset.
+  3. Amazon ECS downsamples the frames, selects those containing the character, and then center-crops them to produce the final character images.
+  4. Amazon ECS invokes an [Amazon Nova](https://aws.amazon.com/ai/generative-ai/nova/) model (Amazon Nova Pro) from [Amazon Bedrock](https://aws.amazon.com/bedrock/) to create captions from the images.
+  5. Amazon ECS writes the image captions and metadata to the S3 bucket.
+  6. The user uses a notebook environment in [Amazon SageMaker AI](https://aws.amazon.com/sagemaker-ai) to invoke the model training job.
+  7. The user fine-tunes a custom Amazon Nova Canvas model by invoking Amazon Bedrock ```create_model_customization_job``` and ```create_model_provisioned_throughput``` API calls to create a custom model available for inference.
 
----
+This workflow is structured in two distinct phases. The initial phase, in Steps 1–5, focuses on preparing the training data. In this post, we walk through an automated pipeline to extract images from an input video and then generate labeled training data. The second phase, in Steps 6–7, focuses on fine-tuning the Amazon Nova Canvas model and performing test inference using the custom-trained model. For these latter steps, we provide the preprocessed image data and comprehensive example code in the following [GitHub repository](https://github.com/aws-samples/sample-character-consistent-storyboard/tree/main/02-character-consistent-fine-tuning-with-amazon-nova-canvas) to guide you through the process.
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+### Prepare the training data
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Let’s begin with the first phase of our workflow. In our example, we build an automated video object/character extraction pipeline to extract high-resolution images with accurate caption labels using the following steps.
 
----
+#### Creative character extraction
 
-## Technology Choices and Communication Scope
+We recommend first sampling video frames at fixed intervals (for example, 1 frame per second). Then, apply [Amazon Rekognition](https://aws.amazon.com/rekognition/) label detection and face collection search to identify frames and characters of interest. Label detection can identify over 2,000 unique labels and locate their positions within frames, making it ideal for initial detection of general character categories or non-human characters. To distinguish between different characters, we then use the Amazon Rekognition feature to [search faces in a collection](https://docs.aws.amazon.com/rekognition/latest/dg/collections.html). This feature identifies and tracks characters by matching their faces against a pre-populated face collection. If these two approaches aren’t precise enough, we can use [Amazon Rekognition Custom Labels](https://aws.amazon.com/rekognition/custom-labels-features/) to train a custom model for detecting specific characters. The following diagram illustrates this workflow.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/image-5-1024x408.jpeg)
 
----
+After detection, we center-crop each character with appropriate pixel padding and then run a deduplication algorithm using the [Amazon Titan Multimodal Embeddings](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-multiemb-models.html) model to remove semantically similar images above a threshold value. Doing so helps us build a diverse dataset because redundant or nearly identical frames could lead to model overfitting (when a model learns the training data too precisely, including its noise and fluctuations, making it perform poorly on new, unseen data). We can calibrate the similarity threshold to fine-tune what we consider to be identical images, so we can better control the balance between dataset diversity and redundancy elimination.
 
-## The Pub/Sub Hub
+#### Data labeling
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+We generate captions for each image using Amazon Nova Pro in Amazon Bedrock and then upload the image and label manifest file to an Amazon S3 location. This process focuses on two critical aspects of prompt engineering: character description to help the FM identify and name the characters based on their unique attributes, and varied description generation that avoids repetitive patterns in the caption (for example, “an animated character”). The following is an example prompt template used during our data labeling process:
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
 ```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+system_prompt = """ 
+    You are an expert image description specialist who creates concise, natural alt
+    text that makes visual content accessible while maintaining clarity and focus.
+    Your task is to analyze the provided image and provide a creative description
+    (20-30 words) that emphasizes the Three main characters, capturing the essential
+    elements of their interaction while avoiding unnecessary details.
+"""
+
+prompt = """
+    
+    1. Identify the main characters in the image: Character 1, Character 2, and
+        Character 3 at least one will be in the picture so provide at a minimum a
+        description with at least one character name.
+      - "Character 1" describe the first character, key traits, background, attributes.
+      - "Character 2" describe the second character, key traits, background, attributes.
+      - "Character 3" describe the third character, key traits, background, attributes. 
+    2. Just state their name WITHOUT adding any standard characteristics.
+    3. Only capture visual element outside the standard characteristics
+    4. Capture the core interaction between them
+    5. Include only contextual details that are crucial for understanding the scene
+    6. Create a natural, flowing description using everyday language
+    
+    Here are some examples
+    
+       ...
+    
+    
+    
+    [Identify the main characters]
+    [Assessment of their primary interaction]
+    [Selection of crucial contextual elements]
+    [Crafting of concise, natural description]
+    
+    
+    {
+        "alt_text": "[Concise, natural description focusing on the main characters]"
+    }
+    
+    
+    Note: Provide only the JSON object as the final response.
+```
+
+The data labeling output is formatted as a JSONL file, where each line pairs an image reference Amazon S3 path with a caption generated by Amazon Nova Pro. This JSONL file is then uploaded to Amazon S3 for training. The following is an example of the file:
+
+```yaml
+{"image_ref": "s3://media-ip-dataset/characters/blue_character_01.jpg", "alt_text": "This
+    animated character features a round face with large expressive eyes. The character
+    has a distinctive blue color scheme with a small tuft of hair on top. The design is
+    stylized with clean lines and a minimalist approach typical of modern animation."}
+{"image_ref": "s3://media-ip-dataset/props/iconic_prop_series1.jpg", "alt_text": "This
+    object appears to be an iconic prop from the franchise. It has a metallic appearance
+    with distinctive engravings and a unique shape that fans would immediately recognize.
+    The lighting highlights its dimensional qualities and fine details that make it
+    instantly identifiable."}
+```
+
+#### Human verification
+
+For enterprise use cases, we recommend incorporating a human-in-the-loop process to verify labeled data before proceeding with model training. This verification can be implemented using [Amazon Augmented AI](https://aws.amazon.com/augmented-ai/) (Amazon A2I), a service that helps annotators verify both image and caption quality. For more details, refer to [Get Started with Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html).
+
+### Fine-tune Amazon Nova Canvas
+
+Now that we have the training data, we can fine-tune the Amazon Nova Canvas model in Amazon Bedrock. Amazon Bedrock requires an [AWS Identity and Access Management](https://aws.amazon.com/iam/) (IAM) service role to access the S3 bucket where you stored your model customization training data. For more details, see [Model customization access and security](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-job-access-security.html). You can perform the fine-tuning task directly on the Amazon Bedrock console or use the Boto3 API. We explain both approaches in this post, and you can find the end-to-end code sample in [picchu-finetuning.ipynb](https://github.com/aws-samples/sample-character-consistent-storyboard/blob/main/02-character-consistent-fine-tuning-with-amazon-nova-canvas/picchu-finetuning.ipynb).
+
+#### Create a fine-tuning job on the Amazon Bedrock console
+
+Let’s start by creating an Amazon Nova Canvas fine-tuning job on the Amazon Bedrock console:
+
+  1. On the Amazon Bedrock console, in the navigation pane, choose **Custom models** under **Foundation models**.
+  2. Choose **Customize model** and then **Create Fine-tuning job**.
+
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/image-8-1024x453.jpg)
+
+  3. On the **Create Fine-tuning job details** page, choose the model you want to customize and enter a name for the fine-tuned model.
+  4. In the **Job configuration** section, enter a name for the job and optionally add tags to associate with it.
+  5. In the **Input data** section, enter the Amazon S3 location of the training dataset file.
+  6. In the **Hyperparameters** section, enter values for hyperparameters, as shown in the following screenshot.
+
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/image-7-1.jpg)
+
+  7. In the **Output data** section, enter the Amazon S3 location where Amazon Bedrock should save the output of the job.
+  8. Choose **Fine-tune model job** to begin the fine-tuning process.
+
+This hyperparameter combination yielded good results during our experimentation. In general, increasing the learning rate makes the model train more aggressively, which often presents an interesting trade-off: we might achieve character consistency more quickly, but it might impact overall image quality. We recommend a systematic approach to adjusting hyperparameters. Start with the suggested batch size and learning rate, and try increasing or decreasing the number of training steps first. If the model struggles to learn your dataset even after 20,000 steps (the maximum allowed in Amazon Bedrock), then we suggest either increasing the batch size or adjusting the learning rate upward. These adjustments, through subtle, can make a significant difference in our model’s performance. For more details about the hyperparameters, refer to [Hyperparameters for Creative Content Generation models.](https://docs.aws.amazon.com/nova/latest/userguide/fine-tune-hyperparameters-content-generation-models.html)
+
+#### Create a fine-tuning job using the Python SDK
+
+The following Python code snippet creates the same fine-tuning job using the [create_model_customization_job API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_model_customization_job.html):
+
+```Python
+bedrock = boto3.client('bedrock')
+jobName = "picchu-canvas-v0"
+# Set parameters
+hyperParameters = {
+        "stepCount": "14000",
+        "batchSize": "64",
+        "learningRate": "0.000001",
+    }
+
+# Create job
+response_ft = bedrock.create_model_customization_job(
+    jobName=jobName,
+    customModelName=jobName,
+    roleArn=roleArn,
+    baseModelIdentifier="amazon.nova-canvas-v1:0",
+    hyperParameters=hyperParameters,
+    trainingDataConfig={"s3Uri": training_path},
+    outputDataConfig={"s3Uri": f"s3://{bucket}/{prefix}"}
+)
+
+jobArn = response_ft.get('jobArn')
+print(jobArn)
+```
+
+When the job is complete, you can retrieve the new ```customModelARN``` using the following code:
+
+```Python
+custom_model_arn = bedrock.list_model_customization_jobs(
+    nameContains=jobName
+)["modelCustomizationJobSummaries"][0]["customModelArn"]
+```
+
+### Deploy the model on the Amazon Bedrock console
+
+To deploy the model from the Amazon Bedrock console, complete the following steps:
+
+  1. On the Amazon Bedrock console, choose **Custom models** under **Foundation models** in the navigation pane.
+  2. Select the new custom model and choose **Purchase provisioned throughput.**
+
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/image-8-2-1024x453.jpg)
+
+  3. In the **Provisioned Throughput details** section, enter a name for the provisioned throughput.
+  4. Under **Select model**, choose the custom model you just created.
+  5. Then specify the commitment term and model units.
+
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/image-9.jpg)
+
+After you purchase provisioned throughput, a new model Amazon Resource Name (ARN) is created. You can invoke this ARN when the provisioned throughput is in service.
+
+![Diagram](/images/3-BlogsTranslated/3.3-Blog3/image-10-1-1024x257.jpg)
+
+#### Deploy the model using the Python SDK
+
+The following Python code snippet creates provisioned throughput using the [create_provisioned_model_throughput API:](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_provisioned_model_throughput.html)
+
+custom_model_name = "picchu-canvas-v0"
+
+```Python
+# Create the provision throughput job and retrieve the provisioned model id
+provisioned_model_id = bedrock.create_provisioned_model_throughput(
+    modelUnits=1,
+    # create a name for your provisioned throughput model
+    provisionedModelName=custom_model_name, 
+    modelId=custom_model_arn
+)['provisionedModelArn']
+```
+
+### Test the fine-tuned model
+When the provisioned throughput is live, we can use the following code snippet to test the custom model and experiment with generating some new images for a sequel to Picchu:
+
+```Python
+import json
+import io
+from PIL import Image
+import base64
+
+def decode_base64_image(img_b64):
+    return Image.open(io.BytesIO(base64.b64decode(img_b64)))
+    
+def generate_image(prompt,
+                   negative_prompt="text, ugly, blurry, distorted, low
+                       quality, pixelated, watermark, text, deformed", 
+                   num_of_images=3,
+                   seed=1):
+    """
+    Generate an image using Amazon Nova Canvas.
+    """
+
+    image_gen_config = {
+            "numberOfImages": num_of_images,
+            "quality": "premium",
+            "width": 1024,  # Maximum resolution 2048 x 2048
+            "height": 1024,  # 1:1 ratio
+            "cfgScale": 8.0,
+            "seed": seed,
+        }
+
+    # Prepare the request body
+    request_body = {
+        "taskType": "TEXT_IMAGE",
+        "textToImageParams": {
+            "text": prompt,
+            "negativeText": negative_prompt,  # List things to avoid
+        },
+        "imageGenerationConfig": image_gen_config
+    } 
+
+    response = bedrock_runtime.invoke_model(
+        modelId=provisioned_model_id,
+        body=json.dumps(request_body)
+    )
+
+    # Parse the response
+    response_body = json.loads(response['body'].read())
+
+    if "images" in response_body:
+        # Extract the image
+        return [decode_base64_image(img) for img in response_body['images']]
+    else:
+        return
+seed = random.randint(1, 858993459)
+print(f"seed: {seed}")
+
+images = generate_image(prompt=prompt, seed=seed)
+```
+
+<div style="display: flex; flex-direction: row; gap: 16px; align-items: flex-start; justify-content: center;">
+  <div style="text-align: left; width: 320px;">
+    <img src="/images/3-BlogsTranslated/3.3-Blog3/image-11-300x300.jpg" alt="Input image" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto 8px auto;">
+    <div>Mayu face shows a mix of nervousness and determination. Mommy kneels beside her, gently holder her. A landscape is visible in the background.</div>
+  </div>
+  <div style="text-align: left; width: 320px;">
+    <img src="/images/3-BlogsTranslated/3.3-Blog3/image-12-300x300.jpg" alt="Output video" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto 8px auto;">
+    <div>A steep cliff face with a long wooden ladder extending downwards. Halfway down the ladder is Mayu with a determined expression on her face. Mayu’s small hands grip the sides of the ladder tightly as she carefully places her feet on each rung. The surrounding environment shows a rugged, mountainous landscape.</div>
+  </div>
+  <div style="text-align: left; width: 320px;">
+    <img src="/images/3-BlogsTranslated/3.3-Blog3/image-13-300x300.jpg" alt="Output video" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto 8px auto;">
+    <div>Mayu standing proudly at the entrance of a simple school building. Her face beams with a wide smile, expressing pride and accomplishment.</div>
+  </div>
+</div>
+
+### Clean up
+
+To avoid incurring AWS charges after you are done testing, complete the cleanup steps in [picchu-finetuning.ipynb](https://github.com/aws-samples/sample-character-consistent-storyboard/blob/main/02-character-consistent-fine-tuning-with-amazon-nova-canvas/picchu-finetuning.ipynb) and delete the following resources:
+
+- Amazon SageMaker Studio domain
+- Fine-tuned Amazon Nova model and provision throughput endpoint
+
+### Conclusion
+
+In this post, we demonstrated how to elevate character and style consistency in storyboarding from [Part 1](https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-1/) by fine-tuning Amazon Nova Canvas in Amazon Bedrock. Our comprehensive workflow combines automated video processing, intelligent character extraction using Amazon Rekognition, and precise model customization using Amazon Bedrock to create a solution that maintains visual fidelity and dramatically accelerates the storyboarding process. By fine-tuning the Amazon Nova Canvas model on specific characters and styles, we’ve achieved a level of consistency that surpasses standard prompt engineering, so creative teams can produce high-quality storyboards in hours rather than weeks. Start experimenting with Nova Canvas fine-tuning today, so you can also elevate your storytelling with better character and style consistency.
