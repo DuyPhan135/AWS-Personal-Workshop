@@ -7,19 +7,19 @@ theme = "hugo-theme-learn"
 
 # For search functionality
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
 
 [params]
-  # Change default color scheme with a variant one. Can be "red", "blue", "green".
-  themeVariant = "workshop"
-  # Git hub repo link
-  editURL = ""
-  description = ""
-  author = "thienlh@thienlu.com"
-  showVisitedLinks = true
-  disableBreadcrumb = false
-  disableNextPrev = false
-  
+# Change default color scheme with a variant one. Can be "red", "blue", "green".
+themeVariant = "workshop"
+# Git hub repo link
+editURL = ""
+description = ""
+author = "danhanh.nguyen1643@gmail.com"
+showVisitedLinks = true
+disableBreadcrumb = false
+disableNextPrev = false
+
 [Languages]
 [Languages.en]
 title = "Internship Report"
@@ -44,6 +44,6 @@ url = "https://www.facebook.com/groups/awsstudygroupfcj/"
 weight = 20
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
