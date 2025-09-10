@@ -31,7 +31,7 @@ The workflow consists of the following steps:
   4. Amazon ECS invokes an [Amazon Nova](https://aws.amazon.com/ai/generative-ai/nova/) model (Amazon Nova Pro) from [Amazon Bedrock](https://aws.amazon.com/bedrock/) to create captions from the images.
   5. Amazon ECS writes the image captions and metadata to the S3 bucket.
   6. The user uses a notebook environment in [Amazon SageMaker AI](https://aws.amazon.com/sagemaker-ai) to invoke the model training job.
-  7. The user fine-tunes a custom Amazon Nova Canvas model by invoking Amazon Bedrock ```create_model_customization_job``` and ```create_model_provisioned_throughput``` API calls to create a custom model available for inference.
+  7. The user fine-tunes a custom Amazon Nova Canvas model by invoking Amazon Bedrock `create_model_customization_job` and `create_model_provisioned_throughput` API calls to create a custom model available for inference.
 
 This workflow is structured in two distinct phases. The initial phase, in Steps 1–5, focuses on preparing the training data. In this post, we walk through an automated pipeline to extract images from an input video and then generate labeled training data. The second phase, in Steps 6–7, focuses on fine-tuning the Amazon Nova Canvas model and performing test inference using the custom-trained model. For these latter steps, we provide the preprocessed image data and comprehensive example code in the following [GitHub repository](https://github.com/aws-samples/sample-character-consistent-storyboard/tree/main/02-character-consistent-fine-tuning-with-amazon-nova-canvas) to guide you through the process.
 
@@ -166,7 +166,7 @@ jobArn = response_ft.get('jobArn')
 print(jobArn)
 ```
 
-When the job is complete, you can retrieve the new ```customModelARN``` using the following code:
+When the job is complete, you can retrieve the new `customModelARN` using the following code:
 
 ```Python
 custom_model_arn = bedrock.list_model_customization_jobs(

@@ -72,7 +72,7 @@ styles = [
 
 ### Tích hợp cảnh với tham số nhất quán
 
-Bây giờ chúng ta có thể kết hợp các kỹ thuật này để kiểm tra sự nhất quán của nhân vật trong các bối cảnh khác nhau, như minh họa dưới đây. Chúng ta giữ nguyên các tham số style, ```seed```, and ```cfgScale```, chỉ thay đổi phần mô tả cảnh để đảm bảo nhân vật vẫn dễ nhận diện xuyên suốt các chuỗi cảnh.
+Bây giờ chúng ta có thể kết hợp các kỹ thuật này để kiểm tra sự nhất quán của nhân vật trong các bối cảnh khác nhau, như minh họa dưới đây. Chúng ta giữ nguyên các tham số style, `seed`, and `cfgScale`, chỉ thay đổi phần mô tả cảnh để đảm bảo nhân vật vẫn dễ nhận diện xuyên suốt các chuỗi cảnh.
 
 <div style="display: flex; flex-direction: column; gap: 24px; align-items: center; justify-content: center;">
   <div style="display: flex; flex-direction: row; gap: 24px; align-items: flex-start; max-width: 800px;">
@@ -97,7 +97,7 @@ Bây giờ chúng ta có thể kết hợp các kỹ thuật này để kiểm t
 
 ### Quy trình phát triển storyboard
 
-Dựa trên các kỹ thuật duy trì nhất quán nhân vật đã bàn, giờ đây chúng ta có thể triển khai một quy trình phát triển storyboard đầu cuối, biến mô tả nhân vật và cảnh viết thành storyboard trực quan mạch lạc. Cách tiếp cận hệ thống này sử dụng tham số cố định cho mô tả phong cách, ```seed``` và ```cfgScale``` để giữ nhân vật nhất quán trong khi thích ứng với nhiều ngữ cảnh khác nhau. Dưới đây là một số mô tả cảnh và nhân vật mẫu:
+Dựa trên các kỹ thuật duy trì nhất quán nhân vật đã bàn, giờ đây chúng ta có thể triển khai một quy trình phát triển storyboard đầu cuối, biến mô tả nhân vật và cảnh viết thành storyboard trực quan mạch lạc. Cách tiếp cận hệ thống này sử dụng tham số cố định cho mô tả phong cách, `seed` và `cfgScale` để giữ nhân vật nhất quán trong khi thích ứng với nhiều ngữ cảnh khác nhau. Dưới đây là một số mô tả cảnh và nhân vật mẫu:
 
 ```yaml
 "scenes":[
@@ -125,7 +125,7 @@ Dựa trên các kỹ thuật duy trì nhất quán nhân vật đã bàn, giờ
 ```
 ![Diagram](/images/3-BlogsTranslated/3.1-Blog1/image-11-4.png)
 
-Quy trình của chúng tôi sử dụng Amazon Nova Lite để trước tiên xây dựng các prompt hình ảnh tối ưu dựa trên các thực tiễn đã thiết lập, sau đó chuyển chúng cho Amazon Nova Canvas để tạo ảnh. Bằng cách đặt ```numberOfImages``` cao hơn (thường là ba biến thể), đồng thời duy trì ```seed``` và ```cfgScale``` cố định, chúng tôi cung cấp cho nhà sáng tạo nhiều lựa chọn vẫn giữ được tính nhất quán nhân vật. Prompt sử dụng cho Amazon Nova Lite như sau:
+Quy trình của chúng tôi sử dụng Amazon Nova Lite để trước tiên xây dựng các prompt hình ảnh tối ưu dựa trên các thực tiễn đã thiết lập, sau đó chuyển chúng cho Amazon Nova Canvas để tạo ảnh. Bằng cách đặt `numberOfImages` cao hơn (thường là ba biến thể), đồng thời duy trì `seed` và `cfgScale` cố định, chúng tôi cung cấp cho nhà sáng tạo nhiều lựa chọn vẫn giữ được tính nhất quán nhân vật. Prompt sử dụng cho Amazon Nova Lite như sau:
 
 ```yaml
 Mô tả một hình ảnh thể hiện tốt nhất cảnh được mô tả. Dưới đây là một số ví dụ:
@@ -181,4 +181,4 @@ dolly tiến vào.
 
 ### Kết luận
 
-Trong phần đầu tiên của loạt bài này, chúng tôi đã khám phá các kỹ thuật cơ bản để đạt được sự nhất quán về nhân vật và phong cách với Amazon Nova Canvas, từ kỹ thuật thiết kế prompt có cấu trúc cho đến xây dựng quy trình storyboard đầu cuối. Chúng tôi đã chứng minh rằng việc kết hợp mô tả phong cách, giá trị ```seed```, và kiểm soát tham số ```cfgScale``` cẩn thận có thể cải thiện đáng kể sự nhất quán nhân vật trong các cảnh khác nhau. Chúng tôi cũng chỉ ra cách tích hợp Amazon Nova Lite với Amazon Nova Reel có thể nâng cao quy trình storyboard, vừa tạo prompt tối ưu vừa mang lại các đoạn hoạt hình minh họa.
+Trong phần đầu tiên của loạt bài này, chúng tôi đã khám phá các kỹ thuật cơ bản để đạt được sự nhất quán về nhân vật và phong cách với Amazon Nova Canvas, từ kỹ thuật thiết kế prompt có cấu trúc cho đến xây dựng quy trình storyboard đầu cuối. Chúng tôi đã chứng minh rằng việc kết hợp mô tả phong cách, giá trị `seed`, và kiểm soát tham số `cfgScale` cẩn thận có thể cải thiện đáng kể sự nhất quán nhân vật trong các cảnh khác nhau. Chúng tôi cũng chỉ ra cách tích hợp Amazon Nova Lite với Amazon Nova Reel có thể nâng cao quy trình storyboard, vừa tạo prompt tối ưu vừa mang lại các đoạn hoạt hình minh họa.

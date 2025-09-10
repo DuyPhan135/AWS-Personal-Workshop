@@ -32,7 +32,7 @@ Amazon ECS giảm tần suất khung hình, chọn các khung chứa nhân vật
   4. Amazon ECS gọi mô hình [Amazon Nova](https://aws.amazon.com/ai/generative-ai/nova/) (Amazon Nova Pro) từ [Amazon Bedrock](https://aws.amazon.com/bedrock/) để tạo chú thích cho hình ảnh.
   5. Amazon ECS ghi chú thích hình ảnh và siêu dữ liệu vào S3 bucket.
   6. Người dùng sử dụng môi trường notebook trong [Amazon SageMaker AI](https://aws.amazon.com/sagemaker-ai) để gọi job huấn luyện mô hình.
-  7. Người dùng tinh chỉnh mô hình Amazon Nova Canvas tùy chỉnh bằng cách gọi API ```create_model_customization_job``` và ```create_model_provisioned_throughput``` trong Amazon Bedrock, từ đó tạo ra mô hình tùy chỉnh sẵn sàng cho suy luận.
+  7. Người dùng tinh chỉnh mô hình Amazon Nova Canvas tùy chỉnh bằng cách gọi API `create_model_customization_job` và `create_model_provisioned_throughput` trong Amazon Bedrock, từ đó tạo ra mô hình tùy chỉnh sẵn sàng cho suy luận.
 
 Quy trình được chia thành hai giai đoạn rõ ràng. Giai đoạn đầu (Bước 1–5) tập trung vào việc chuẩn bị dữ liệu huấn luyện. Trong bài viết này, chúng ta sẽ đi qua pipeline tự động trích xuất hình ảnh từ video đầu vào và tạo dữ liệu huấn luyện đã gắn nhãn. Giai đoạn thứ hai (Bước 6–7) tập trung vào tinh chỉnh mô hình Amazon Nova Canvas và thử nghiệm suy luận bằng mô hình đã được huấn luyện. Với các bước này, chúng tôi cung cấp dữ liệu hình ảnh đã được tiền xử lý và mã ví dụ đầy đủ trong [GitHub repository](https://github.com/aws-samples/sample-character-consistent-storyboard/tree/main/02-character-consistent-fine-tuning-with-amazon-nova-canvas) để bạn có thể dễ dàng thực hiện theo.
 
@@ -155,7 +155,7 @@ jobArn = response_ft.get('jobArn')
 print(jobArn)
 ```
 
-When the job is complete, you can retrieve the new ```customModelARN``` using the following code:
+When the job is complete, you can retrieve the new `customModelARN` using the following code:
 
 ```Python
 custom_model_arn = bedrock.list_model_customization_jobs(

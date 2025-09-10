@@ -73,7 +73,7 @@ styles = [
 
 ### Scene integration with consistent parameters
 
-Now we can put these techniques together to test for character consistency across different narrative contexts, as shown in the following example images. We maintain consistent input for style, ```seed```, and ```cfgScale```, varying only the scene description to make sure character remains recognizable throughout the scene sequences.
+Now we can put these techniques together to test for character consistency across different narrative contexts, as shown in the following example images. We maintain consistent input for style, `seed`, and `cfgScale`, varying only the scene description to make sure character remains recognizable throughout the scene sequences.
 
 <div style="display: flex; flex-direction: column; gap: 24px; align-items: center; justify-content: center;">
   <div style="display: flex; flex-direction: row; gap: 24px; align-items: flex-start; max-width: 800px;">
@@ -98,7 +98,7 @@ Now we can put these techniques together to test for character consistency acros
 
 ### Storyboard development pipeline
 
-Building upon the character consistency techniques we’ve discussed, we can now implement an end-to-end storyboard development pipeline that transforms written scene and character descriptions into visually coherent storyboards. This systematic approach uses our established parameters for style descriptions, ```seed``` values, and ```cfgScale``` values to provide character consistency while adapting to different narrative contexts. The following are some example scene and character descriptions:
+Building upon the character consistency techniques we’ve discussed, we can now implement an end-to-end storyboard development pipeline that transforms written scene and character descriptions into visually coherent storyboards. This systematic approach uses our established parameters for style descriptions, `seed` values, and `cfgScale` values to provide character consistency while adapting to different narrative contexts. The following are some example scene and character descriptions:
 
 ```yaml
 "scenes":[
@@ -129,7 +129,7 @@ Building upon the character consistency techniques we’ve discussed, we can now
 ```
 ![Diagram](/images/3-BlogsTranslated/3.1-Blog1/image-11-4.png)
 
-Our pipeline uses Amazon Nova Lite to first craft optimized image prompts incorporating our established best practices, which are then passed to Amazon Nova Canvas for image generation. By setting ```numberOfImages``` higher (typically three variations), while maintaining consistent ```seed``` and ```cfgScale``` values, we give creators multiple options that preserve character consistency. We used the following prompt for Amazon Nova Lite to generate optimized image prompts:
+Our pipeline uses Amazon Nova Lite to first craft optimized image prompts incorporating our established best practices, which are then passed to Amazon Nova Canvas for image generation. By setting `numberOfImages` higher (typically three variations), while maintaining consistent `seed` and `cfgScale` values, we give creators multiple options that preserve character consistency. We used the following prompt for Amazon Nova Lite to generate optimized image prompts:
 
 ```yaml
 Describe an image that best represents the scene described. Here are some examples:
@@ -158,7 +158,7 @@ Mayu encounters a ‘danger’ sign with a drawing of a snake. She looks scared,
 ![Diagram](/images/3-BlogsTranslated/3.1-Blog1/3-1.png)
 Mayu bravely makes her way through tall grass, swinging her stick and making noise to scare off potential snakes. Her face shows a mix of fear and courage as she pushes forward on her journey.
 
-Although these techniques noticeably improve character consistency, they aren’t perfect. Upon closer inspection, you will notice that even images within the same scene show variations in character consistency. Using consistent ```seed``` values helps control these variations, and the techniques outlined in this post significantly improve consistency compared to basic prompt engineering. However, if your use case requires near-perfect character consistency, we recommend proceeding to [Part 2](https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-2/), where we explore advanced fine-tuning techniques.
+Although these techniques noticeably improve character consistency, they aren’t perfect. Upon closer inspection, you will notice that even images within the same scene show variations in character consistency. Using consistent `seed` values helps control these variations, and the techniques outlined in this post significantly improve consistency compared to basic prompt engineering. However, if your use case requires near-perfect character consistency, we recommend proceeding to [Part 2](https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-2/), where we explore advanced fine-tuning techniques.
 
 ### Video generation for animated storyboards
 
@@ -184,4 +184,4 @@ A sunlit forest path with a 'Danger' sign featuring a snake. A 7-year-old Peruvi
 
 ### Conclusion
 
-In this first part of our series, we explored fundamental techniques for achieving character and style consistency using Amazon Nova Canvas, from structured prompt engineering to building an end-to-end storyboarding pipeline. We demonstrated how combining style descriptions, ```seed``` values, and careful ```cfgScale``` parameter control can significantly improve character consistency across different scenes. We also showed how integrating Amazon Nova Lite with Amazon Nova Reel can enhance the storyboarding workflow, enabling both optimized prompt generation and animated sequences.
+In this first part of our series, we explored fundamental techniques for achieving character and style consistency using Amazon Nova Canvas, from structured prompt engineering to building an end-to-end storyboarding pipeline. We demonstrated how combining style descriptions, `seed` values, and careful `cfgScale` parameter control can significantly improve character consistency across different scenes. We also showed how integrating Amazon Nova Lite with Amazon Nova Reel can enhance the storyboarding workflow, enabling both optimized prompt generation and animated sequences.
