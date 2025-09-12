@@ -4,10 +4,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 1:
 
@@ -15,44 +11,39 @@ pre: " <b> 1.1. </b> "
 * Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            				  | Note							|
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | -------------------------------------------------------------------------- | -----------------------------------------------------------	|
+| 2   | - Học từ module 01-01 đến 01-07                                                                                             								    | 08/09/2025   | 08/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Nắm các thông tin, dịch vụ của AWS  			|
+| 3   | - Học từ module 01-Lab01-01 đến 01-Lab01-04                                            													    | 09/09/2025   | 09/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Biết cách thiết lập tài khoản AWS, quản lý user và admin   	|					
+| 4   | - Học từ module 01-Lab07-01 đến 01-Lab07-06 																		    | 10/09/2025   | 10/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Biết kiểm soát chi phí AWS qua ngân sách và cleanup		|					
+| 5   | - Học từ module 01-Lab09-01 đến 01-Lab09-04	                  															    | 11/09/2025   | 11/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Hiểu các gói hỗ trợ AWS và cách quản lý yêu cầu hỗ trợ      |					
+| 6   | - Dịch blog 1: "Xây dựng storyboard nhân vật nhất quán với Amazon Nova trong Amazon Bedrock – Phần 1"                                                                                       | 12/09/2025   | 12/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |				        			|					
 
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Gained foundational knowledge of AWS account and user management  
+    * Created and managed AWS accounts  
+    * Set up IAM users and administrators with appropriate permissions  
+* Nắm vững kiến thức nền tảng về quản lý tài khoản và người dùng AWS  
+    * Tạo và quản lý tài khoản AWS  
+    * Thiết lập IAM user và admin với quyền phù hợp  
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Developed skills in AWS cost and budget management  
+    * Created cost, usage, RI, and Savings Plans budgets  
+    * Applied cleanup practices to manage budgets efficiently  
+* Phát triển kỹ năng quản lý chi phí và ngân sách trên AWS  
+    * Tạo ngân sách chi phí, usage, RI và Savings Plans  
+    * Thực hiện cleanup để quản lý ngân sách hiệu quả  
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Acquired understanding of AWS Support services  
+    * Differentiated between AWS support packages  
+    * Created and managed support requests  
+    * Learned how to change support packages when needed  
+* Hiểu và sử dụng các dịch vụ hỗ trợ AWS  
+    * Phân biệt các gói hỗ trợ AWS  
+    * Tạo và quản lý yêu cầu hỗ trợ (support requests)  
+    * Biết cách thay đổi gói hỗ trợ khi cần thiết  
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 

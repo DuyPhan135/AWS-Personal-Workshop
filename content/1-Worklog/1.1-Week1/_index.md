@@ -4,9 +4,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
 
 ### Week 1 Objectives:
@@ -15,42 +12,26 @@ pre: " <b> 1.1. </b> "
 * Understand basic AWS services, how to use the console & CLI.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        				   | Note								    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | -------------------------------------------------------------------------  | ---------------------------------------------------------------------- |
+| 2   | - Learn from module 01-01 to 01-07			                                                                                                    					       | 09/08/2025 | 09/08/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Have a basic understanding of AWS information and services  	    |
+| 3   | - Learn from module 01-Lab01-01 to 01-Lab01-04											                                              			       | 09/09/2025 | 09/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Create AWS account, setup MFA, know how to create admin group and user |
+| 4   | - Learn from module 01-Lab07-01 to 01-Lab07-06																			       | 09/10/2025 | 09/10/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Practiced AWS cost control through budgets and cleanup		    |
+| 5   | - Learn from module 01-Lab09-01 to 01-Lab09-04																                               | 09/11/2025 | 09/11/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Understood AWS Support packages and request management		    |
+| 6   | - Translate blog 1: "Build character consistent storyboards using Amazon Nova in Amazon Bedrock – Part 1"                                                                                     	       | 08/12/2025 | 08/12/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |								            |
 
 
 ### Week 1 Achievements:
+* Gained foundational knowledge of AWS account and user management  
+    * Created and managed AWS accounts  
+    * Set up IAM users and administrators with appropriate permissions  
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Developed skills in AWS cost and budget management  
+    * Created cost, usage, RI, and Savings Plans budgets  
+    * Applied cleanup practices to manage budgets efficiently  
 
-* Successfully created and configured an AWS Free Tier account.
+* Acquired understanding of AWS Support services  
+    * Differentiated between AWS support packages  
+    * Created and managed support requests  
+    * Learned how to change support packages when needed  
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
