@@ -2,57 +2,34 @@
 title: "Worklog Tuần 2"
 weight: 1
 chapter: false
-pre: " <b> 1.2. </b> "
+pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 2:
 
-### Mục tiêu tuần 2:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu rõ về Virtual Private Cloud (VPC) và các khái niệm cơ bản về mạng trong AWS.  
+* Khám phá Amazon EC2, bao gồm các loại instance và cách quản lý.  
+* Tìm hiểu về Amazon S3, các lớp lưu trữ và chiến lược quản lý hiệu quả.  
+* Nghiên cứu IAM trong AWS: vai trò, chính sách và các thực hành tốt nhất trong quản lý truy cập.  
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Ngày | Công việc                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                                                                               | Ghi chú                                 |
+| ---- | --------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| 2    | - Tìm hiểu các khái niệm mạng cơ bản và VPC trong AWS                                                                       | 15/09/2025   | 15/09/2025      | <https://000003.awsstudygroup.com/vi/>, <https://www.youtube.com/watch?v=jGLUTFs7-1c>                            | Khái niệm mạng cơ bản                   |
+| 2    | - Tìm hiểu IAM: người dùng, nhóm, vai trò và chính sách; bật MFA và kiểm thử kiểm soát truy cập                             | 15/09/2025   | 15/09/2025      | <https://000002.awsstudygroup.com/vi/>     | IAM roles, policies, và truy cập        |
+| 3    | - Tạo VPC, cấu hình subnet, route table và security group                                                                   | 16/09/2025   | 16/09/2025      | <https://www.youtube.com/watch?v=jGLUTFs7-1c>, <https://000003.awsstudygroup.com/vi/3-prerequisite/>            | Thực hành tạo VPC                       |
+| 4    | - Khởi chạy và quản lý EC2 instances; tìm hiểu các loại instance và theo dõi hiệu năng                                      | 17/09/2025   | 17/09/2025      | <https://000003.awsstudygroup.com/vi/4-createec2server/>, <https://www.youtube.com/watch?v=6PqZVGoeEEA> | Quản lý EC2 instance                    |
+| 5    | - Tạo S3 bucket, tải file lên và xem xét các lớp lưu trữ; thiết lập bucket policy                                           | 18/09/2025   | 18/09/2025      | <https://www.youtube.com/watch?v=p9ddQvOoNQ4>                                              | Quản lý lưu trữ với S3                  |
+| 6    | - Dịch Blog 2: "Xây dựng storyboard nhân vật nhất quán bằng Amazon Nova trong Amazon Bedrock – Phần 2"                      | 19/09/2025   | 19/09/2025      | <https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-2/> |                                         |
 
 ### Kết quả đạt được tuần 2:
+* Xây dựng nền tảng kiến thức về quản lý tài khoản và người dùng trong AWS  
+    * Tạo và cấu hình thành công nhiều tài khoản AWS cho các mục đích khác nhau  
+    * Thiết lập IAM users và administrators, gán quyền và vai trò phù hợp  
+    * Thực hành bật xác thực đa yếu tố (MFA) để tăng cường bảo mật tài khoản  
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Phát triển kỹ năng thực hành với dịch vụ mạng và tính toán trong AWS  
+    * Tạo Virtual Private Cloud (VPC), cấu hình subnet, route table và security group  
+    * Khởi chạy và quản lý nhiều loại EC2 instance, thử nghiệm các loại instance và theo dõi hiệu năng  
+    * Tìm hiểu Amazon S3 bằng cách tạo bucket, tải lên và quản lý đối tượng, cũng như xem xét các tùy chọn lớp lưu trữ  
+    * Thực hành thiết lập IAM roles và policies, gán quyền cho người dùng và dịch vụ để quản lý truy cập an toàn  
