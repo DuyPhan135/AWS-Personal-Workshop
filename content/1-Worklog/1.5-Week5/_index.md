@@ -17,7 +17,7 @@ pre: " <b> 1.5. </b> "
 | 3   | - Install and configure the AWS CLI. Practice basic commands to list S3 buckets or describe EC2 instances                                              						       | 10/07/2025 | 10/07/2025      | <https://000011.awsstudygroup.com/>	  | I will understand that the AWS CLI is a tool for managing AWS services via the command line, enabling automation		|
 | 4   | - Create a simple DynamoDB table. Use the console to add, update, and delete items 														       | 10/08/2025 | 10/08/2025      | <https://000060.awsstudygroup.com/> 	  | Learn that DynamoDB is a managed NoSQL database and how to perform basic CRUD operations				   	|
 | 5   | - Launch a Redis cluster. Connect to it and practice basic SET and GET commands                            											       | 10/09/2025 | 10/09/2025      | <https://000061.awsstudygroup.com/> 	  | Lnderstand how ElastiCache (Redis) works as an in-memory caching service to improve application performance			| 
-| 6   | - Create a CloudFront distribution for an S3 bucket containing a static website                                                                                     				       | 10/10/2025 | 10/10/2025      | <https://000094.awsstudygroup.com/> 	  | Learn that CloudFront is a CDN that speeds up content delivery by caching it at edge locations				|
+| 6   | - Create a CloudFront distribution for an S3 bucket containing a static website.                                                                                     				       | 10/10/2025 | 10/10/2025      | <https://000094.awsstudygroup.com/> 	  | Learn that CloudFront is a CDN that speeds up content delivery by caching it at edge locations				|
 
 
 ### Week 5 Achievements:
