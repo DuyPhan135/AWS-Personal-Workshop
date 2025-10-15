@@ -17,7 +17,7 @@ pre: " <b> 1.1. </b> "
 | 3   | - Học từ module 01-Lab01-01 đến 01-Lab01-04                                            													    | 09/09/2025   | 09/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Biết cách thiết lập tài khoản AWS, quản lý user và admin   	|					
 | 4   | - Học từ module 01-Lab07-01 đến 01-Lab07-06 																		    | 10/09/2025   | 10/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Biết kiểm soát chi phí AWS qua ngân sách và cleanup		|					
 | 5   | - Học từ module 01-Lab09-01 đến 01-Lab09-04	                  															    | 11/09/2025   | 11/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> | Hiểu các gói hỗ trợ AWS và cách quản lý yêu cầu hỗ trợ      |					
-| 6   | - Dịch blog 1: "Xây dựng storyboard nhân vật nhất quán với Amazon Nova trong Amazon Bedrock – Phần 1"                                                                                       | 12/09/2025   | 12/09/2025      | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |				        			|					
+| 6   | - Dịch blog 1: "Xây dựng storyboard nhân vật nhất quán với Amazon Nova trong Amazon Bedrock – Phần 1"                                                                                       | 12/09/2025   | 12/09/2025      | <https://aws.amazon.com/blogs/machine-learning/build-character-consistent-storyboards-using-amazon-nova-in-amazon-bedrock-part-1/> |				        			|					
 
 
 ### Kết quả đạt được tuần 1:
