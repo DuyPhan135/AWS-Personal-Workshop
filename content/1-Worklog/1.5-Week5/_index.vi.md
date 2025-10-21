@@ -4,55 +4,53 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nắm bắt và hiểu các công nghệ Route53, CLI, DynamoDB, ElasstiCache (Redis), Cloud Front
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                              | Ngày bắt đầu  | Ngày hoàn thành  | Nguồn tài liệu                            | Ghi chú			   												     |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ---------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 2   | - Tạo **public hosted zone** và thêm **record** để trỏ tên miền đến địa chỉ IP                                                                                                  		       | 06/10/2025    | 06/10/2025       | <https://000010.awsstudygroup.com/vi/>    | Tìm hiểu cách Route 53, một dịch vụ DNS có khả năng mở rộng, ánh xạ tên miền tới địa chỉ IP.		 		     | 
+| 3   | - Cài đặt và cấu hình **AWS CLI**. Thực hành các lệnh cơ bản để liệt kê **S3 buckets** hoặc mô tả **EC2 instances**                                              				       | 07/10/2025    | 07/10/2025       | <https://000011.awsstudygroup.com/vi/>    | Hiểu rằng AWS CLI là công cụ quản lý dịch vụ AWS qua dòng lệnh, giúp tự động hóa thao tác quản trị.			     |
+| 4   | - Tạo một bảng **DynamoDB** đơn giản. Sử dụng giao diện console để thêm, cập nhật và xóa dữ liệu 												       | 08/10/2025    | 08/10/2025       | <https://000060.awsstudygroup.com/vi/>    | Tìm hiểu DynamoDB là cơ sở dữ liệu NoSQL được quản lý và cách thực hiện các thao tác CRUD cơ bản.		             |
+| 5   | - Khởi chạy **Redis cluster**. Kết nối và thực hành các lệnh cơ bản **SET** và **GET**                            										       | 09/10/2025    | 09/10/2025       | <https://000061.awsstudygroup.com/vi/>    | Hiểu cách ElastiCache (Redis) hoạt động như một dịch vụ bộ nhớ đệm trong RAM giúp tăng hiệu năng ứng dụng.		     | 
+| 6   | - Tạo **CloudFront distribution** cho **S3 bucket** chứa trang web tĩnh                                                                                     				               | 10/10/2025    | 10/10/2025       | <https://000094.awsstudygroup.com/vi/>    | Tìm hiểu CloudFront là mạng phân phối nội dung (CDN) giúp tăng tốc độ tải bằng cách lưu cache tại các điểm biên (edge).	     |
 
 
 ### Kết quả đạt được tuần 5:
+* Nắm vững kiến thức thực hành về các dịch vụ cốt lõi của AWS thuộc nhiều nhóm khác nhau:
+  * Networking & Content Delivery: Route 53 (DNS), CloudFront (CDN)
+  * Database & Storage: DynamoDB (Cơ sở dữ liệu NoSQL), ElastiCache for Redis (Bộ nhớ đệm trong RAM)
+  * Management Tools: AWS CLI (Giao diện dòng lệnh)
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Cấu hình quản lý DNS bằng Amazon Route 53
+  * Tạo public hosted zone và thêm A record ánh xạ tên miền với địa chỉ IP công khai
+  * Hiểu cách Route 53 cung cấp dịch vụ DNS mở rộng, giúp định tuyến tên miền đến tài nguyên web hiệu quả và tin cậy
+  * Cài đặt và cấu hình AWS CLI để quản lý tài nguyên qua dòng lệnh
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thiết lập Access Key, Secret Key, và Default Region
+  * Thực hành các lệnh như liệt kê S3 buckets, mô tả EC2 instances, kiểm tra thông tin cấu hình
+  * Hiểu rõ cách AWS CLI hỗ trợ tự động hóa và quản lý tài nguyên AWS linh hoạt
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Xây dựng bảng DynamoDB để tìm hiểu về cơ sở dữ liệu NoSQL
+  * Tạo bảng thông qua giao diện AWS Management Console
+  * Thực hành các thao tác CRUD (Tạo, Đọc, Cập nhật, Xóa)
+  * Hiểu rõ bản chất serverless của DynamoDB trong việc xử lý dữ liệu có cấu trúc ở quy mô lớn
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Triển khai cụm ElastiCache (Redis) để tối ưu hiệu năng ứng dụng
+  * Khởi tạo và kết nối đến Redis cluster
+  * Thực hành các lệnh SET và GET để lưu và truy xuất dữ liệu trong bộ nhớ đệm
+  * Nắm được vai trò của in-memory caching trong việc giảm tải cho cơ sở dữ liệu và tăng tốc độ phản hồi
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Triển khai CloudFront để tối ưu phân phối nội dung
+  * Tạo CloudFront distribution cho trang web tĩnh được lưu trữ trên S3
+  * Hiểu cách CloudFront sử dụng hệ thống edge locations để tăng tốc độ tải nội dung toàn cầu, cải thiện trải nghiệm người dùng
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Hình thành tư duy tổng thể về cách các dịch vụ AWS liên kết với nhau
+  * Route 53 dùng để ánh xạ tên miền, CloudFront tăng tốc phân phối nội dung, DynamoDB và Redis hỗ trợ xử lý dữ liệu hiệu quả
+  * Hiểu cách các dịch vụ này kết hợp nhằm mang lại khả năng mở rộng, tin cậy, và hiệu năng cao cho kiến trúc ứng dụng hiện đại
 
 
