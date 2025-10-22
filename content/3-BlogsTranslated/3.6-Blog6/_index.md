@@ -36,9 +36,9 @@ We identified a migration approach that eliminates additional on-premises hardwa
 Let’s explore the available approaches available for migrating a non-Unicode SAP system with an Oracle database (running on RHEL) to Oracle Enterprise Linux on AWS.
 
 | Approach | Description | Steps |
-|  --  |  --  |  |
-| Option 1 | Unicode conversion along with migration to AWS staying on an Oracle database | * Migrate the SAP system from the on-premises data center to AWS, converting from non-Unicode to Unicode during the process.<br>* Perform remediation and testing of the SAP system on AWS, then decommission the on-premises SAP system. |
-| Option 2 | Migrate non-Unicode SAP to AWS, then convert to Unicode while staying on an Oracle database | - Migrate the SAP system from the on-premises data center to AWS using asynchronous database replication in a temporary system until the cutover.<br>- Convert from non-Unicode to Unicode on AWS by exporting from the temporary system and importing into the final system.<br>- Perform remediation and testing of the SAP system on AWS, then decommission the on-premises SAP system and the temporary system. |
+| --- | --- | --- |
+| Option 1 | Unicode conversion along with migration to AWS staying on an Oracle database | - Migrate the SAP system from the on-premises data center to AWS, converting from non-Unicode to Unicode during the process.<br>- Perform remediation and testing of the SAP system on AWS, then decommission the on-premises SAP system. |
+| Option 2 | Migrate non-Unicode SAP to AWS, then convert to Unicode while staying on an Oracle database | - Migrate the SAP system from the on-premises data center to AWS using asynchronous database replication in a temporary system until the cutover.<br>- Convert from non-Unicode to Unicode on AWS by exporting from the temporary system and importing into the final system.<br>- Perform remediation and testing of the SAP system on AWS, then decommission the on-premises SAP system and the temporary system.
 
 Table 1: Unicode conversion options for SAP on Oracle to AWS
 
@@ -48,9 +48,11 @@ In Option 2, a non-Unicode SAP vanilla system is provisioned on [Amazon Elastic 
 
 Let’s examine a simplified architectural setup as shown in Figure 1 to understand the migration process for this approach.
 
-![Simplified architectural setup for Unicode conversion and migration](https://d2908q01vomqb2.cloudfront.net/17ba0791499db908433b80f37c5fbc89b870084b/2025/06/10/Simplified-architectural-setup-for-Unicode-conversion-and-migration2.jpg)
+![Simplified architectural setup for Unicode conversion and migration](/images/3-BlogsTranslated/3.6-Blog6/image-1-1.jpg)
 
-**Figure 1: Simplified architectural setup for Unicode conversion and migration**
+<div align="center">
+    <i>Figure 1: Simplified architectural setup for Unicode conversion and migration</i>
+</div>
 
 In the first step, Oracle Data Guard is configured for data synchronization between the on-premises database and the staging instance on AWS. Data is transferred from the on-premises environment to the staging instance over [AWS Direct Connect](https://aws.amazon.com/directconnect/). The replication process continues until the start of the cutover process during the downtime window. After taking over the database on the staging instance, it becomes the source system for the SAP system export. In the second step, the SAP system copy export, including any necessary preparation like table splitting, is initiated on the staging database instance. The export dump is stored on an [Amazon Elastic Block Store (Amazon EBS)](https://aws.amazon.com/ebs/) volume attached to the staging instance (referred to as sapdump) and Oracle data files are stored on the EBS volumes (referred to as sapdata). In the third step, the export dump files are continuously transferred to the [Amazon EBS](https://aws.amazon.com/ebs/) volume attached to the final instance using File Transfer Protocol (FTP) without manual intervention. In the fourth step, the import process is started on the final database instance, running in parallel with the export process. By employing a parallel migration approach using SAP tools like [Software Provisioning Manager](https://help.sap.com/docs/SOFTWARE_PROVISIONING_MANAGER) (SWPM) and [SAP Migration Monitor](https://help.sap.com/doc/3a697dba3b544d3ab0db197f753088b1/CURRENT_VERSION/en-US/MigrationMonitor7xx.pdf), export/import process are parallelized. After completing the export/import, the target SAP system is started, and post-processing steps are performed on the final instance. Subsequently, the staging instance is shut down and eventually terminated.
 
@@ -62,11 +64,13 @@ Customers should obtain SAP’s concurrence for temporarily running the non-Unic
 
 Let’s delve into the best practices which helped in minimizing downtime during the technical conversion. To better understand this, we will examine the guidelines and practices that are implemented in each phase of the system migration. Figure 2 shows the high-level phases for Unicode conversion and migration of an SAP system based on Oracle.
 
-![Phases in SAP system Unicode conversion and migration based on Oracle](https://d2908q01vomqb2.cloudfront.net/17ba0791499db908433b80f37c5fbc89b870084b/2025/06/10/Phases-in-SAP-system-Unicode-conversion-and-migration-based-on-Oracle.jpg)
+![Phases in SAP system Unicode conversion and migration based on Oracle](/images/3-BlogsTranslated/3.6-Blog6/image-2-1.jpg)
 
-**Figure 2: Phases in an SAP system Unicode conversion and migration based on Oracle**
+<div align="center">
+    <i>Figure 2: Phases in an SAP system Unicode conversion and migration based on Oracle</i>
+</div>
 
-### Planning
+**Planning**
 
 During the planning phase, we recommend considering strategies to reduce the size of large technical tables. Cross-check if standard reorganization jobs are scheduled to prevent the technical tables from growing indefinitely. For instance, following the guidelines in [SAP Note 1616768](https://me.sap.com/notes/1616768/E) for the BALDAT and BALHDR tables will be beneficial if these log tables have become excessively large.
 
@@ -82,7 +86,7 @@ During the migration process, it is essential to monitor the total CPU and IOPS 
 
 While migrating to Unicode, SAP system parameters for the target Unicode system will need to be adapted as outlined in [SAP Note 790099](https://me.sap.com/notes/790099/E). Depending on the support contract with SAP, you should consider using the “Going Live Functional Upgrade service” provided by SAP, which offers baseline recommendations for the Unicode system. [SAP Note 2360708](https://me.sap.com/notes/2360708) provides more information about how to request support service from SAP. Consider implementing the parameter changes early in the non-production environment before commencing the user acceptance testing. This proactive approach allows the business and technical teams to assess the impact of these changes and plan better for similar parameter adjustments in the production environment.
 
-### System build
+**System build**
 
 During the build phase, infrastructure is provisioned for both non-Unicode and Unicode SAP systems. The non-Unicode system serves as a temporary staging instance, utilized solely during the migration process, while the Unicode system serves as the final instance. Once the infrastructure is ready, SAP vanilla builds are performed for both the non-Unicode and Unicode systems. Building these vanilla systems allows for the execution of preparatory technical checks, such as high availability testing, in advance. As always, make sure to leverage the flexible benefits of the cloud to shut down your EC2 instances when they are not in use, which will help lower your hardware costs.
 
@@ -102,7 +106,7 @@ An example disk layout is provided for an Oracle database instance in Table 2, c
 
 Table 2: Sample disk layout for Oracle database instance
 
-### ODG setup / Replication / Monitoring
+**ODG setup / Replication / Monitoring**
 
 Oracle’s native solution, [Oracle Data Guard](https://www.oracle.com/database/data-guard/) (ODG), are employed to create a transactionally consistent copy of the on-premises database on a staging database server in AWS. Initially, [Oracle Recovery Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/getting-started-rman.html) (RMAN) is utilized to create a clone of the on-premises database on the staging server. Subsequently, the [Data Guard Broker](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-concepts.html) is configured for change data capture (CDC), ensuring that all data changes made to the on-premises database are captured and applied to the target staging database in real-time.
 
@@ -110,21 +114,21 @@ Parallel channels are employed to maximize the copy throughput. Since RMAN utili
 
 To further enhance the conversion process, just before the cutover, scale up the staging and target database [Amazon EC2](https://aws.amazon.com/ec2/instance-types/) instances to meet conversion requirements. Additionally, adjustments are required for Oracle database parameters, for example MEMORY_TARGET and MEMORY_MAX_TARGET in databases configured with automatic memory management, to fully utilize the additional resources. During the conversion, both the staging and target databases are set to NOARCHIVELOG mode to minimize the overhead associated with log archiving.
 
-### Unicode uptime / Pre-Migration steps
+**Unicode uptime / Pre-Migration steps**
 
 The Unicode conversion is carried out as part of the SAP system copy procedure. During this process, the system is exported from the source in Unicode format and then imported into the target SAP system. The [SAP System Copy Guide](https://help.sap.com/doc/23afa39273d149f5b747805421f54017/CURRENT_VERSION/en-US/SystemCopy_71X_ux_abap.pdf), and the “Unicode conversion guide” as referred in [SAP Note 551344](https://me.sap.com/notes/551344/E)), provides detailed instructions for this process.
 
 Before the Unicode export and import can take place, the system must undergo a series of preparatory checks, both during uptime and downtime periods. These checks are outlined in the Unicode conversion guide. The uptime checks and reports are executed on the on-premises system, while reports and checks that require system downtime are performed on the staging instance on AWS, after the system takeover.
 
-### Ramp down
+**Ramp down**
 
 During the scheduled business downtime, the systems are gracefully locked out for end-users. Once the communication interfaces are stopped, the systems are prepared for the migration process. In this phase, preparatory tasks are performed as outlined in the [SAP system copy guide](https://help.sap.com/doc/23afa39273d149f5b747805421f54017/CURRENT_VERSION/en-US/SystemCopy_71X_ux_abap.pdf), including suspending batch jobs, disabling alerts, stopping background processing, addressing cancelled or pending updates, and clearing invalid temporary tables etc. These steps ensure a smooth migration by bringing the systems to a consistent state before the actual migration activities commence.
 
-### Takeover
+**Takeover**
 
 After confirming that the primary and standby systems are synchronized, the staging system (on AWS) is taken over. This takeover is validated using the Oracle Data Guard (ODG) [switchover](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/examples-using-data-guard-broker-DGMGRL-utility.html#GUID-1403D1C3-8944-42D0-8BDA-21D695C7958A) procedure. Upon successful takeover, the ODG configuration is [removed](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/examples-using-data-guard-broker-DGMGRL-utility.html#GUID-820B4A3F-6FA3-4CC7-A06E-27BE25AB66F4) to prevent any reverse communication from the target system to the on-premises environment. Subsequently, the instance type and database-related parameters are adjusted before initiating the system copy procedure.
 
-### System copy (Export / Import / Monitor)
+**System copy (Export / Import / Monitor)**
 
 To optimize the system copy procedure, start with identifying the top tables from the system DB02 list and plan for splitting large tables (e.g. tables more than 20 GB in size). Techniques such as Package Splitting and Table Splitting are used to enable parallel processing of table exports and imports. Running the [SAP migration time analyzer](https://help.sap.com/doc/3a697dba3b544d3ab0db197f753088b1/CURRENT_VERSION/en-US/MigrationMonitor7xx.pdf) can provide a consolidated view of package exports and imports, allowing for the identification of further optimization opportunities. This optimization exercise may require multiple test runs to identify the right sequence.
 
@@ -144,11 +148,11 @@ It is recommended to monitor the volumes that hold the Oracle online redo logs, 
 
 Figure 3 illustrates an example of an [Amazon CloudWatch Dashboard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) displaying important metrics.
 
-![Amazon CloudWatch Dashboard with important metrics](https://d2908q01vomqb2.cloudfront.net/17ba0791499db908433b80f37c5fbc89b870084b/2025/06/10/Amazon-CloudWatch-Dashboard-with-important-metrics.jpg)
+![Amazon CloudWatch Dashboard with important metrics](/images/3-BlogsTranslated/3.6-Blog6/image-3-1.jpg)
 
-**Figure 3: Amazon CloudWatch Dashboard with important metrics**
+_Figure 3: Amazon CloudWatch Dashboard with important metrics_
 
-### Post-Migration steps
+**Post-Migration steps**
 
 In this phase, all the post-Unicode conversion, post-migration activities as outlined in the SAP Unicode conversion guide as referred in [SAP Note 551344](https://me.sap.com/notes/551344/E) and [SAP system copy guide](https://help.sap.com/doc/23afa39273d149f5b747805421f54017/CURRENT_VERSION/en-US/SystemCopy_71X_ux_abap.pdf) are executed. Once these activities are completed, any optimizations made specifically for the migration (e.g., instance size, IOPS, throughput, SAP/database parameters) are reverted to their original settings.
 
@@ -156,7 +160,7 @@ Before handing over the system for user validation, ensure that a system backup 
 
 Following the prescribed steps precisely ensures successful post-migration testing and production deployment.
 
-## Conclusion
+### Conclusion
 
 In this blog post, you learned how [Bell Canada](https://www.bell.ca/) leveraged the scalable infrastructure of AWS to complete the technical Unicode conversion of their 11 TB ERP Production system in less than 5 hours and successfully migrated to AWS. This approach resulted in a 75% reduction in technical downtime compared to a single-step Unicode conversion and migration process, which takes more than 24 hours. Additionally, it eliminated the need for additional on-premises hardware resources.
 
@@ -164,11 +168,11 @@ By adopting this approach, [Bell Canada](https://www.bell.ca/) was able to optim
 
 In this blog, we used [Oracle Data Guard](https://www.oracle.com/in/database/data-guard/) to set up the staging instance. However, there are restrictions when changing endianness (Big Endian and Little Endian), such as from AIX (Big Endian) to X86_64 (Little Endian), as per Oracle’s documentation [Data Guard Support for Heterogeneous Primary and Physical Standbys in Same Data Guard Configuration](https://support.oracle.com/knowledge/Oracle Cloud/413484_1.html) (requires an Oracle support login). [SAP Note 552464](https://me.sap.com/notes/552464/E) guides on determining the exact endianness for different architectures and operating systems. In scenarios where customers need to migrate SAP non-Unicode system on Oracle database from a big-endian to a little-endian platform, Oracle Cross-Platform Transportable Tablespaces (XTTS) is utilized to migrate the non-Unicode system to AWS following the blog [Reducing downtime with Oracle XTTS method for cross-platform SAP migrations](https://aws.amazon.com/blogs/awsforsap/reducing-downtime-with-oracle-xtts-method-for-cross-platform-sap-migrations/). Once the non-Unicode system is available on AWS, you can perform the export and import processes on AWS following the steps outlined in this blog.
 
-## Join the SAP on AWS Discussion
+### Join the SAP on AWS Discussion
 
 In addition to your customer account team and [AWS Support](https://aws.amazon.com/contact-us/) channels, AWS provides public Question & Answer forums on our [re:Post Site](https://aws.amazon.com/blogs/aws/aws-repost-a-reimagined-qa-experience-for-the-aws-community/). Our SAP on AWS Solution Architecture team regularly monitor the [SAP on AWS](https://www.repost.aws/topics/TAujMzs1_ZR3SIaMwia7ln7A/sap-on-aws) topic for discussion and questions that could be answered to assist you. If your question is not support-related, consider joining the discussion over at [re:Post](https://www.repost.aws/topics/TAujMzs1_ZR3SIaMwia7ln7A/sap-on-aws) and adding to the community knowledge base.
 
-## Credits
+### Credits
 
 We would like to thank the following team members for their contributions: Derek Ewell and Spencer Martenson.
 
