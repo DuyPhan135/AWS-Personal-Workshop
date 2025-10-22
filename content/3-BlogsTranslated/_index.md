@@ -17,11 +17,17 @@ AWS announces a new community meeting series for the AWS Cloud Development Kit (
 
 The article introduces the authorization-for-expressjs package from the open-source Cedar project, enabling Express applications on Node.js to integrate policy-based authorization in minutes, reducing code by 90% compared to manual integration. Using the PetStore sample app, Cedar decouples authorization logic, allowing fine-grained policy definitions, e.g., restricting write operations (POST /pets, POST /pets/{petId}/sale) to employees while allowing read operations (GET /pets, GET /pets/{petId}) for customers. The package auto-generates Cedar schemas from OpenAPI specs, creates sample policies, and integrates middleware for authorization without remote calls. Security is enhanced via JWT and OIDC, with policy validation easily tested using curl commands, improving developer productivity and simplifying access audits.
 
-### [Blog 4 - ](3.4-Blog4/)
+### [Blog 4 - mazon Bedrock baseline architecture in an AWS landing zone](3.4-Blog4/)
 
-### [Blog 5 - ...](3.5-Blog5/)
+The article describes a reference architecture for securely managing and governing access to Amazon Bedrock's capabilities within a multi-account AWS environment, known as an AWS landing zone. This centralized architecture consists of three primary account types: a service network account, a generative AI account, and various workload accounts. The solution leverages Amazon VPC Lattice to streamline connectivity, security, and monitoring of communications between services. This approach establishes a multi-layered defense strategy, enforcing granular access control through network-level security and VPC Lattice authentication policies, while also emphasizing the importance of monitoring usage and compliance with tools like Amazon CloudWatch and AWS CloudTrail.
 
-### [Blog 6 - ...](3.6-Blog6/)
+### [Blog 5 - Modernizing SAP Procurement Processes with Amazon Appflow, SAP BTP Integration Suite, and Amazon Bedrock](3.5-Blog5/)
+
+The article presents a solution for modernizing SAP procurement by integrating AWS services like Amazon AppFlow and Amazon Bedrock with SAP BTP Integration Suite. This architecture automates and enhances the procurement workflow, specifically focusing on a use case for a Sustainability Sourcing Assistant. The system uses a chatbot interface and generative AI to analyze quotations based on both price and sustainability metrics. By leveraging Amazon Bedrock for natural language processing and integrating with SAP systems, the solution provides a flexible, serverless approach to transform procurement processes, making them more efficient and aligned with sustainability goals.
+
+### [Blog 6 - Optimizing Unicode Conversion Downtime for SAP Systems on Oracle to AWS](3.6-Blog6/)
+
+The article discusses a method to minimize downtime during the Unicode conversion of SAP systems on Oracle databases when migrating to AWS. It highlights a case study of Bell Canada, which successfully migrated an 11 TB non-Unicode SAP ERP system to AWS in under 5 hours, achieving a 75% reduction in technical downtime compared to a traditional one-step conversion and migration process. The approach involves setting up a temporary non-Unicode SAP system on Amazon EC2 and replicating data from the on-premises system using Oracle Data Guard. During the planned downtime, this temporary instance becomes the source for the Unicode conversion, with export and import processes running in parallel on different EC2 instances. This method, combined with best practices like pre-checks and network reliability, leverages AWS's scalable infrastructure to reduce business disruption and optimize operational efficiency.
 
 ### [Blog 7 - ...](3.7-Blog7/)
 

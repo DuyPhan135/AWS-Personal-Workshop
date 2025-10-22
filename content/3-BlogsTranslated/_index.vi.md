@@ -17,11 +17,17 @@ AWS công bố chuỗi họp cộng đồng mới cho AWS Cloud Development Kit 
 
 Bài viết giới thiệu gói `authorization-for-expressjs` của dự án mã nguồn mở Cedar, cho phép tích hợp kiểm tra phân quyền dựa trên chính sách vào ứng dụng Express trên Node.js chỉ trong vài phút, giảm 90% mã so với cách tích hợp thủ công. Sử dụng mẫu ứng dụng PetStore, Cedar tách biệt logic phân quyền khỏi mã ứng dụng, cho phép định nghĩa chính sách chi tiết thông qua ngôn ngữ Cedar, ví dụ: chỉ nhân viên được phép thực hiện các thao tác ghi (POST /pets, POST /pets/{petId}/sale), trong khi khách hàng chỉ được đọc (GET /pets, GET /pets/{petId}). Gói này tự động tạo lược đồ Cedar từ đặc tả OpenAPI, sinh chính sách mẫu và tích hợp middleware để kiểm tra phân quyền mà không cần gọi dịch vụ từ xa. Ứng dụng được bảo mật thông qua JWT và OIDC, với khả năng kiểm tra chính sách dễ dàng bằng lệnh `curl`, nâng cao hiệu suất phát triển và đơn giản hóa kiểm tra quyền truy cập.
 
-### [Blog 4 -](3.4-Blog4/)
+### [Blog 4 - Kiến Trúc Cơ Sở Amazon Bedrock Trong Một Vùng Hạ Tầng AWS](3.4-Blog4/)
 
-### [Blog 5 - ...](3.5-Blog5/)
+Bài viết mô tả một kiến trúc tham chiếu để quản lý và bảo mật quyền truy cập vào các khả năng của Amazon Bedrock trong môi trường AWS đa tài khoản, hay còn gọi là AWS landing zone. Kiến trúc tập trung này bao gồm ba loại tài khoản chính: tài khoản mạng dịch vụ, tài khoản Generative AI và các tài khoản khối lượng công việc. Giải pháp tận dụng Amazon VPC Lattice để đơn giản hóa việc kết nối, bảo mật và giám sát giao tiếp giữa các dịch vụ. Cách tiếp cận này cung cấp một chiến lược bảo vệ đa lớp, thực thi kiểm soát truy cập chi tiết thông qua các chính sách bảo mật cấp mạng và chính sách xác thực của VPC Lattice, đồng thời nhấn mạnh tầm quan trọng của việc giám sát sử dụng và tuân thủ bằng các công cụ như Amazon CloudWatch và AWS CloudTrail.
 
-### [Blog 6 - ...](3.6-Blog6/)
+### [Blog 5 - Hiện đại hóa Quy trình Mua sắm SAP với Amazon Appflow, SAP BTP Integration Suite và Amazon Bedrock](3.5-Blog5/)
+
+Bài viết trình bày một giải pháp hiện đại hóa quy trình mua sắm của SAP bằng cách tích hợp các dịch vụ AWS như Amazon AppFlow và Amazon Bedrock với SAP BTP Integration Suite. Kiến trúc này tự động hóa và cải tiến quy trình làm việc mua sắm, đặc biệt tập trung vào một trường hợp sử dụng cho Trợ lý Tìm nguồn cung ứng Bền vững. Hệ thống sử dụng giao diện chatbot và AI tạo sinh để phân tích báo giá dựa trên cả chỉ số về giá cả và tính bền vững. Bằng cách tận dụng Amazon Bedrock để xử lý ngôn ngữ tự nhiên và tích hợp với các hệ thống SAP, giải pháp cung cấp một phương pháp tiếp cận linh hoạt, không máy chủ để chuyển đổi các quy trình mua sắm, giúp chúng hiệu quả hơn và phù hợp với các mục tiêu bền vững.
+
+### [Blog 6 - Tối Ưu Hóa Thời Gian Ngừng Hoạt Động Chuyển Đổi Unicode Cho Hệ Thống SAP Trên Oracle Sang AWS](3.6-Blog6/)
+
+Bài viết thảo luận về một phương pháp nhằm giảm thiểu thời gian ngừng hoạt động trong quá trình chuyển đổi Unicode của các hệ thống SAP trên cơ sở dữ liệu Oracle khi di chuyển sang AWS. Bài viết nêu bật một nghiên cứu điển hình của Bell Canada, công ty đã di chuyển thành công hệ thống SAP ERP không phải Unicode 11 TB sang AWS trong vòng chưa đầy 5 giờ, giảm 75% thời gian ngừng hoạt động kỹ thuật so với quy trình chuyển đổi và di chuyển một bước truyền thống. Cách tiếp cận này bao gồm việc thiết lập một hệ thống SAP không phải Unicode tạm thời trên Amazon EC2 và sao chép dữ liệu từ hệ thống tại chỗ bằng Oracle Data Guard. Trong thời gian ngừng hoạt động theo kế hoạch, phiên bản tạm thời này sẽ trở thành nguồn cho việc chuyển đổi Unicode, với các quy trình xuất và nhập chạy song song trên các phiên bản EC2 khác nhau. Phương pháp này, kết hợp với các phương pháp hay nhất như kiểm tra trước và đảm bảo độ tin cậy của mạng, tận dụng cơ sở hạ tầng có thể mở rộng của AWS để giảm thiểu sự gián đoạn kinh doanh và tối ưu hóa hiệu quả hoạt động.
 
 ### [Blog 7 - ...](3.7-Blog7/)
 
