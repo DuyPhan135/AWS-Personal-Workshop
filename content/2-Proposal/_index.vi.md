@@ -27,7 +27,7 @@ Giải pháp giúp nhóm thực hành xây dựng ứng dụng chat hoàn chỉn
 
 *Dịch vụ AWS sử dụng*  
 - *Amazon S3*: Lưu trữ giao diện web tĩnh được xây dựng bằng Vue.js.  
-- *AWS Lambda*: 1 Lambda Authorizer để kiểm tra token Cognito - và 3 Lambda Functions để xử lý nghiệp vụ cho các route WebSocket.
+- *AWS Lambda*: 1 Lambda Authorizer để kiểm tra token Cognito và 3 Lambda Functions để xử lý nghiệp vụ cho các route WebSocket.
 - *Amazon API Gateway*: Tiếp nhận và duy trì kết nối WebSocket, định tuyến các sự kiện .   
 - *Amazon Route 53*: Quản lý DNS và định tuyến tên miền tùy chỉnh.  
 - *Amazon CloudFront*: Phân phối Frontend Vue.js (CDN) và chuyển tiếp kết nối WebSocket (WSS).  
