@@ -26,7 +26,7 @@ The Web Chat application is deployed based on the AWS Serverless architecture, e
 
 *AWS Services Utilized*  
 - *Amazon S3*: Stores the static web interface built with Vue.js. 
-- *AWS Lambda*: 1 Lambda Authorizer to check the Cognito token—and 3 Lambda Functions to handle business logic for the WebSocket routes.
+- *AWS Lambda*: 1 Lambda Authorizer to check the Cognito token and 3 Lambda Functions to handle business logic for the WebSocket routes.
 - *Amazon API Gateway*: Receives and maintains WebSocket connections, routing events.
 - *Amazon Route 53*: Manages DNS and routes the custom domain.
 - *Amazon CloudFront*: Distributes the Vue.js Frontend (CDN) and forwards the WebSocket (WSS) connection.
