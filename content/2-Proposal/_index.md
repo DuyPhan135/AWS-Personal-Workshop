@@ -72,7 +72,6 @@ The Web Chat Project consists of 2 main parts—building the backend, frontend f
 
 ### 6. Budget Estimation  
 View costs on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Or download the [budget estimation file](../attachments/budget_estimation.pdf).  
 
 *Infrastructure Costs*  
 - AWS Lambda: 0,01 USD/month ( ~50.000 Invocations)

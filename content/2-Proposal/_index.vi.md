@@ -10,22 +10,21 @@ pre: " <b> 2. </b> "
 Serverless Web Chat Platform được phát triển nhằm cung cấp một giải pháp giao tiếp nội bộ nhanh chóng, bảo mật và dễ vận hành. Ứng dụng hỗ trợ nhắn tin thời gian thực giữa các thành viên thông qua giao diện web nhẹ, có kha năng mở rộng linh hoạt trong tương lai. Nền tảng tận dụng các dịch vụ AWS Serverless như API Gateway AWS Lambda, DynamoDB và Amazon Cognito để đảm bảo vận hành ổn định, chi phí thấp và không yêu cầu quản lý máy chủ. Quyền truy cập được giới hạn cho các thành viên phòng lab, đảm bảo bảo mật và tính riêng tư trong quá trình trao đổi thông tin.
 
 ### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
+*Vấn đề hiện tại*<br>
 Nhóm đang phát triển một ứng dụng chat phục vụ mục đích học tập và nghiên cứu về cách xây dựng hệ thống web thời gian thực. Nếu triển khai theo mô hình truyền thống (tự dựng máy chủ, tự quản lý cơ sở dữ liệu và duy trì kết nối WebSocket), nhóm sẽ phải đối mặt với nhiều khó khăn như: thiết lập hạ tầng phức tạp, xử lý mở rộng khi có nhiều kết nối đồng thời, đảm bảo tính ổn định và bảo mật, cũng như theo dõi và ghi log đầy đủ cho hệ thống. Việc không tận dụng các dịch vụ AWS khiến nhóm khó mô phỏng các mô hình hạ tầng hiện đại, đồng thời tốn thời gian cho các tác vụ vận hành thay vì tập trung vào phần ứng dụng và các bài học kỹ thuật cốt lõi.
 
-*Giải pháp*
+*Giải pháp*<br>
 Ứng dụng Web Chat được triển khai dựa trên các dịch vụ Serverless của AWS, nhằm mô phỏng kiến trúc ứng dụng hiện đại, có khả năng mở rộng tối đa.Giải pháp tập trung vào việc loại bỏ nhu cầu quản lý máy chủ, tối đa hóa khả năng mở rộng tức thì và giảm chi phí vận hành. Bằng cách sử dụng WebSocket API qua CloudFront và Lambda, giải pháp đảm bảo giao tiếp WSS tốc độ cao, đồng thời áp dụng DynamoDB để xử lý hiệu quả các thao tác đọc/ghi lớn cho dữ liệu chat. Cognito cung cấp lớp xác thực mạnh mẽ, bảo vệ toàn bộ ứng dụng từ lớp truy cập (frontend) đến lớp API.
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*
+*Lợi ích và hoàn vốn đầu tư (ROI)*<br>
 Giải pháp giúp nhóm thực hành xây dựng ứng dụng chat hoàn chỉnh từ frontend đến backend, kết hợp với các dịch vụ cloud thường dùng trong môi trường doanh nghiệp. Nhờ tận dụng Free Tier và các tài nguyên test, chi phí triển khai thấp nhưng vẫn đảm bảo đủ tính thực tiễn để nhóm hiểu rõ về quản lý hạ tầng, giám sát, mở rộng và bảo mật. Việc triển khai trên AWS giúp giảm thời gian cấu hình thủ công, đồng thời tạo nền tảng vững chắc cho các nghiên cứu nâng cao như chatbot, xử lý dữ liệu hoạt động người dùng hoặc tích hợp hệ thống AI. Thời gian hoàn vốn gần như tức thời do không yêu cầu chi phí phần cứng và giảm đáng kể nỗ lực vận hành.
 
  ### 3. Kiến trúc giải pháp  
-Ứng dụng Web Chat được triển khai dựa trên kiến trúc AWS Serverless, đảm bảo khả năng mở rộng và hiệu suất cao.Backend Realtime được xây dựng xung quanh Amazon API Gateway (WebSocket API) và các AWS Lambda Functions để xử lý logic chat theo sự kiện. Amazon DynamoDB được sử dụng để lưu trữ tin nhắn và thông tin kết nối, cung cấp độ trễ thấp cần thiết cho ứng dụng realtime.Frontend viết bằng VueJS, được lưu trữ trên Amazon S3 và phân phối qua CloudFront để tối ưu tốc độ và bảo mật kết nối WebSocket (WSS). Route 53 quản lý tên miền và định tuyến truy cập, sử dụng ACM (Certificate Manager) để cấp chứng chỉ. Amazon Cognito quản lý xác thực và danh tính người dùng.Toàn bộ hệ thống được giám sát bằng Amazon CloudWatch và được bảo vệ bởi các chính sách IAM. Kiến trúc này tạo điều kiện thuận lợi cho nhóm nghiên cứu các quy trình vận hành, triển khai liên tục và mở rộng ứng dụng chat realtime trên môi trường đám mây. 
+Ứng dụng Web Chat được triển khai dựa trên kiến trúc AWS Serverless, đảm bảo khả năng mở rộng và hiệu suất cao. Backend Realtime được xây dựng xung quanh Amazon API Gateway (WebSocket API) và các AWS Lambda Functions để xử lý logic chat theo sự kiện. Amazon DynamoDB được sử dụng để lưu trữ tin nhắn và thông tin kết nối, cung cấp độ trễ thấp cần thiết cho ứng dụng realtime. Frontend viết bằng VueJS, được lưu trữ trên Amazon S3 và phân phối qua CloudFront để tối ưu tốc độ và bảo mật kết nối WebSocket (WSS). Route 53 quản lý tên miền và định tuyến truy cập, sử dụng ACM (Certificate Manager) để cấp chứng chỉ. Amazon Cognito quản lý xác thực và danh tính người dùng. Toàn bộ hệ thống được giám sát bằng Amazon CloudWatch và được bảo vệ bởi các chính sách IAM. Kiến trúc này tạo điều kiện thuận lợi cho nhóm nghiên cứu các quy trình vận hành, triển khai liên tục và mở rộng ứng dụng chat realtime trên môi trường đám mây. 
 
 ![WebChat Realtime Serverless Architecture](/images/2-Proposal/webchat_architecture.png)
 
-
-*Dịch vụ AWS sử dụng*  
+*Dịch vụ AWS sử dụng*
 - *Amazon S3*: Lưu trữ giao diện web tĩnh được xây dựng bằng Vue.js.  
 - *AWS Lambda*: 1 Lambda Authorizer để kiểm tra token Cognito - và 3 Lambda Functions để xử lý nghiệp vụ cho các route WebSocket.
 - *Amazon API Gateway*: Tiếp nhận và duy trì kết nối WebSocket, định tuyến các sự kiện .   
@@ -37,7 +36,7 @@ Giải pháp giúp nhóm thực hành xây dựng ứng dụng chat hoàn chỉn
 - *Amazon IAM*: Quản lý quyền truy cập và ủy quyền cho các dịch vụ.
 - *Amazon CloudWatch*: Cung cấp dịch vụ giám sát và ghi log cho toàn bộ kiến trúc (Shared Service).
 
-*Thiết kế thành phần*  
+*Thiết kế thành phần*
 - *Giao diện web*: Ứng dụng Vue.js được phân phối qua CloudFront, sử dụng WSS để giao tiếp realtime.
 - *Quản lý người dùng*: Cognito và Lambda Authorizer quản lý việc đăng nhập, đăng ký và xác thực token trước khi thiết lập kết nối.
 - *Tiếp nhận dữ liệu*: API Gateway (WebSocket) tiếp nhận các sự kiện $connect/$message/$disconnect và kích hoạt các hàm xử lý.
@@ -48,7 +47,6 @@ Giải pháp giúp nhóm thực hành xây dựng ứng dụng chat hoàn chỉn
 ### 4. Triển khai kỹ thuật  
 **Các giai đoạn triển khai**  
 Dự án Web Chat gồm 2 phần chính — xây dựng backend , frontend cho web và triển khai lên Cloud AWS - trải qua 5 giai đoạn:  
-
 1. **Xây dựng Prototype**: Tìm hiểu VueJS, NestJS và lên kế hoạch xây dựng Web chat chạy trên mạng LAN  (1 tháng trước kỳ thực tập).  
 2. **Nghiên cứu và vẽ kiến trúc**: Tìm hiểu các dịch vụ AWS và vẽ kiến trúc phù hợp với dự án WebChat (Tháng 1).  
 3. **Tính toán chi phí và kiểm tra tính khả thi**: Sử dụng AWS Pricing Calculator để ước tính chi phí Lambda, API Gateway, DynamoDB, S3, CloudFront, CloudWatch và điều chỉnh thiết kế cho phù hợp (Tháng 2).  
@@ -73,7 +71,6 @@ Dự án Web Chat gồm 2 phần chính — xây dựng backend , frontend cho w
 
 ### 6. Ước tính ngân sách  
 Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
 
 *Chi phí hạ tầng*  
 - AWS Lambda: 0,01 USD/tháng ( ~50.000 Invocations)
