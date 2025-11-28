@@ -4,11 +4,6 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
 
 ### Đánh giá chung
 
@@ -30,14 +25,25 @@ Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, l�
 **6. Chính sách / phúc lợi cho thực tập sinh**  
 Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
 
-
 ### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+**Điều bạn hài lòng nhất trong thời gian thực tập?**
 
+Là cảm giác được học hỏi, tiếp thu kiến thức mới mỗi ngày, 
+
+**Điều bạn nghĩ công ty cần cải thiện cho các thực tập sinh sau?**
+
+Có thể chuẩn bị trước một lộ trình học tập chi tiết hơn ngay từ tuần đầu (ví dụ: tuần 1-2 học tool gì, tuần 3-4 làm task nào…), để các bạn mới không bị “ngợp” trong 1-2 tuần đầu.
+
+**Nếu giới thiệu cho bạn bè, bạn có khuyên họ thực tập ở đây không? Vì sao?**  
+
+Chắc chắn là có. Ở đây không chỉ dạy kỹ thuật mà còn dạy cách làm việc, cách tư duy giải quyết vấn đề.
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+
+**Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?**
+
+Cần thống nhất trong cách đưa ra quyết định của các mentor với nhau.
+
+**Bạn có muốn tiếp tục chương trình này trong tương lai?**
+
+Chắc chắn có.
