@@ -9,11 +9,11 @@ pre: " <b> 2. </b> "
 ## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
 
 ### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+Dự án là một ứng dụng chat tin nhắn thời gian thực hướng tới nhóm nội bộ hoặc khách hàng nhỏ (tối đa vài nghìn người dùng hoạt động đồng thời ban đầu). Ứng dụng dùng Vue.js cho frontend, NestJS cho backend, và MongoDB để lưu trữ message / conversation / user profile. Mục tiêu là cung cấp trải nghiệm realtime ổn định (tin nhắn 1-1, nhóm, presence, typing indicators, file attachments), dễ triển khai và dễ mở rộng bằng cách tận dụng dịch vụ AWS: hosting backend bằng ECS Fargate (hoặc App Runner), WebSocket realtime qua API Gateway WebSocket (hoặc WebSocket handled bởi NestJS trên Fargate), cache & pub/sub với Amazon ElastiCache (Redis) để đồng bộ sự kiện giữa các instance, lưu media trên Amazon S3, và Amazon Cognito quản lý xác thực/ủy quyền. Tôi đóng vai trò leader kỹ thuật — chịu trách nhiệm thiết kế kiến trúc, phân chia nhiệm vụ dev, hướng dẫn best practices và đảm bảo vận hành an toàn.
 
 ### 2. Tuyên bố vấn đề  
 *Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Cần một nền tảng chat nội bộ nhanh, đáng tin cậy và có khả năng mở rộng để thay thế các công cụ giao tiếp phân tán hoặc không có khả năng realtime. Việc xây dựng và duy trì một cụm WebSocket Server truyền thống tốn kém và yêu cầu quản lý vận hành phức tạp.  
 
 *Giải pháp*  
 Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
