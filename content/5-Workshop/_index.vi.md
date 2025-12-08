@@ -21,5 +21,5 @@ Tính năng real-time messaging được triển khai thông qua Socket.io, cho 
 2. [Chuẩn bị](5.2-Prerequiste/)
 3. [Thiết lập Infrastructure với Terraform](5.3-Infra-Terraform/)
 4. [Build Docker Image và Deploy Backend](5.4-Docker-DeployBE/)
-5. [Deploy Frontend](5.5-DeployFE/)
+5. [Triển khai Frontend](5.5-DeployFE/)
 6. [Dọn dẹp tài nguyên](5.7-Cleanup/)
