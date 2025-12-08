@@ -15,4 +15,6 @@ The services we will need to use during the deployment process:
 #### Contents
 
 1. [Deploy Frontend to AWS Amplify](5.5.1-Deploy-Frontend/)
-2. [Configure Custom Domain with Route 53](5.5.2-Custom-Domain/)
+2. [Configure to connect Frontend and Backend](5.5.2-Connect-BE-FE/)
+3. [Configure Custom Domain with Route53 and SSL verification with AWS Certificate Manager](5.5.3-Custom-Domain-BE/)
+4. [Customize Domain for Amplify Frontend](5.5.4-Custom-Domain-FE/)

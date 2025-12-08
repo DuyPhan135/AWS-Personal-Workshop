@@ -1,5 +1,5 @@
 ---
-title : "Configure Custom Domain with Route53 and SSL verification with ACM"
+title : "Configure Custom Domain with Route53 and SSL verification with AWS Certificate Manager"
 weight : 3
 chapter : false
 pre : " <b> 5.5.3 </b> "
