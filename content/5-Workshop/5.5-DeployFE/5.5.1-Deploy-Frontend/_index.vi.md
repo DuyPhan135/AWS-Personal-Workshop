@@ -6,7 +6,8 @@ pre : " <b> 5.5.1 </b> "
 ---
 #### Chuẩn bị Github Repository 
 Chúng ta sẽ chuẩn bị 1 Repository Github , Project này có dạng Monoporo , trong project có chứa thư mục frontend và thư mục backend . Ở đây chúng ta sẽ triển khai ở thư mục frontend lên Amplify.
-![github-repo](/images/5-Workshop/5.5-DeployFE/github-repo.png)
+
+![github-repo](/images/5-Workshop/5.5-DeployFE/5.5.1-Deploy-FE-Amplify/github-repo.png)
 
 #### Bắt đầu triển khai với Amazon Amplify
 

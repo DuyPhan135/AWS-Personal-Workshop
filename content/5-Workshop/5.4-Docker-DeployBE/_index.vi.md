@@ -75,26 +75,41 @@ Output build thành công:
 
 ![docker-build](/images/5-Workshop/5.4-Docker-DeployBE/docker-build.png)
 
-## 4. Tag image với ECR
+## 4. Kiểm tra repository image trên AWS ECR
+
+- Đăng nhập AWS Console và mở ECR repository.
+- Kiểm tra repository, ảnh dưới hiển thị image `webchat-app-dev-backend`.
+
+![ecr-repo](/images/5-Workshop/5.4-Docker-DeployBE/AWS-ECR-Console.png)
+
+- Nhấp vào image `webchat-app-dev-backend` để xem chi tiết.
+
+![ecr-repo-detail](/images/5-Workshop/5.4-Docker-DeployBE/AWS-ECR-Console-Detail.png)
+
+- Trong hình trên, có nhiều tag cho image `webchat-app-dev-backend`.
+- Tag `latest` là image mới nhất được push.
+- Chọn "View push commands" để xem lệnh push image.
+
+![ecr-repo-push-commands](/images/5-Workshop/5.4-Docker-DeployBE/AWS-ECR-Console-Push-Commands.png)
+
+## 5. Tag image với ECR
 
 ```bash
 docker tag webchat-app-dev-backend:latest \
   986446886396.dkr.ecr.ap-southeast-2.amazonaws.com/webchat-app-dev-backend:latest
 ```
 
-## 5. Push image lên ECR
+## 6. Push image lên ECR
 
 ```bash
 docker push 986446886396.dkr.ecr.ap-southeast-2.amazonaws.com/webchat-app-dev-backend:latest
 ```
 
-- Kiểm tra trên ECR repository: image mới và digest mới.
-
 ECR repository với tag/digest mới:
 
 ![ecr-repo](/images/5-Workshop/5.4-Docker-DeployBE/ecr-repo.png)
 
-## 6. Kiểm tra sau deploy
+## 7. Kiểm tra sau deploy
 
 - Kiểm tra API nhanh qua `/api/auth/login`:
   ![api-test](/images/5-Workshop/5.4-Docker-DeployBE/api-login-test.png)

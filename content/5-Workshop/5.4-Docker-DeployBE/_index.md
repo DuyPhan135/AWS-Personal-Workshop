@@ -75,26 +75,42 @@ Output build successful:
 
 ![docker-build](/images/5-Workshop/5.4-Docker-DeployBE/docker-build.png)
 
-## 4. Tag image with ECR
+## 4. Check image repository in AWS ECR
+
+- Login to AWS Console and navigate to ECR repository.
+
+- Check the image repository in AWS ECR, in the image shown below, you can see the image `webchat-app-dev-backend`.
+
+![ecr-repo](/images/5-Workshop/5.4-Docker-DeployBE/AWS-ECR-Console.png)
+
+- Click on the image `webchat-app-dev-backend` to see the details of the image.
+
+![ecr-repo-detail](/images/5-Workshop/5.4-Docker-DeployBE/AWS-ECR-Console-Detail.png)
+
+- In the picture shown above, you can see multiple tags for the image `webchat-app-dev-backend`.
+- The tag `latest` is the latest image pushed to the repository.
+- Click on view push commands to see the commands to push the image to the repository.
+
+![ecr-repo-push-commands](/images/5-Workshop/5.4-Docker-DeployBE/AWS-ECR-Console-Push-Commands.png)
+
+## 5. Tag image with ECR
 
 ```bash
 docker tag webchat-app-dev-backend:latest \
   986446886396.dkr.ecr.ap-southeast-2.amazonaws.com/webchat-app-dev-backend:latest
 ```
 
-## 5. Push image to ECR
+## 6. Push image to ECR
 
 ```bash
 docker push 986446886396.dkr.ecr.ap-southeast-2.amazonaws.com/webchat-app-dev-backend:latest
 ```
 
-- Check on ECR repository: new image and new digest.
-
 ECR repository with new tag/digest:
 
 ![ecr-repo](/images/5-Workshop/5.4-Docker-DeployBE/ecr-repo.png)
 
-## 6. Verify after deployment
+## 7. Verify after deployment
 
 - Quick API check via `/api/auth/login`:
   ![api-test](/images/5-Workshop/5.4-Docker-DeployBE/api-login-test.png)
