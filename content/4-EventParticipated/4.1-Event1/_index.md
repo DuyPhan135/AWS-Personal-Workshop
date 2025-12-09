@@ -1,125 +1,90 @@
 ---
-title: "Event 1"
+title: "Kick-off AWS First Cloud Journey Workforce OJT FALL 2025"
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
+# Report: “Kick-off AWS First Cloud Journey Workforce OJT FALL 2025”
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+### Event Purpose
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+- To welcome students selected for the OJT FALL 2025 program.
+- To mark the beginning of the journey to become AWS Builders.
+- To provide orientation on practical skills regarding Cloud, DevOps, AI/ML, Security, and Data & Analytics.
+- To connect students with the AWS Study Group community and partner enterprises.
 
-### Event Objectives
+### Speakers List
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- **Nguyen Tran Phuoc Bao** - Head of Corporate Relations (University Representative)
+- **Nguyen Gia Hung** - Head of Solutions Architect, AWS Vietnam
+- **Do Huy Thang** - DevOps Lead, VNG
+- **Danh Hoang Hieu Nghi** - GenAI Engineer, Renova
+- **Bui Ho Linh Nhi** - AI Engineer, SoftwareOne
+- **Pham Nguyen Hai Anh** - Cloud Engineer, G-Asia Pacific
+- **Nguyen Dong Thanh Hiep** - Principal Cloud Engineer, G-Asia Pacific
 
-### Speakers
+### Key Content Highlights
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+#### Program Introduction & Vision
 
-### Key Highlights
+- **History & Scale:** Launched in 2021, the program has supported over 2,000 students and trained 150+ specialized personnel for top technology companies.
+- **Mission:** Acting as a vital bridge between Knowledge – Technology – Career.
+- **Goal:** To build a generation of high-quality workforce ready for international integration.
 
-#### Identifying the drawbacks of legacy application architecture
+#### Keynote & Industry Sharing
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+Orientation on the technology landscape and career opportunities:
+- **AWS First Cloud Journey:** The future direction of Cloud Computing in Vietnam.
+- **DevOps Career:** Career development roadmap within the DevOps sector at major corporations like VNG.
 
-#### Transitioning to modern application architecture – Microservices
+#### Alumni & Career Sharing
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
-
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
-
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+Real-world stories from previous generations:
+- **From OJT to GenAI Engineer:** The journey of transformation and adapting to AI trends.
+- **She in Tech:** Inspiring female students in the engineering/tech industry.
+- **Daily Life of a Cloud Engineer:** What a real working day looks like.
+- **Journey to First Cloud Journey:** Experiences and lessons learned to conquer the program.
 
 ### Key Takeaways
 
-#### Design Mindset
+#### Career Mindset
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- **Cloud First Mindset:** Understanding the critical role of cloud computing in the digital era.
+- **Clear Roadmap:** Visualizing career steps from Fresher to Professional Engineer at Global companies.
+- **Proactivity:** Learning the spirit of self-study and networking from Alumni.
 
-#### Technical Architecture
+#### Market Knowledge
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- **Tech Trends:** The rise of GenAI and the role of DevOps in modern software development.
+- **Business Needs:** Practical skills that enterprises actually require (beyond academic theory).
 
-#### Modernization Strategy
+### Application to Work & Study
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- **Study Planning:** Focus on key suggested areas (AI/ML, DevOps, Security).
+- **Networking:** Leverage opportunities to connect with the AWS Study Group (47,000+ members) to find mentors and peers.
+- **Soft Skills:** Prepare a professional mindset for entering the actual corporate environment.
+- **OJT Commitment:** Dedicate full effort to the upcoming internship to transform knowledge into working skills.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the Kick-off event at **Bitexco Financial Tower** was an exciting experience, marking a significant turning point in my career journey.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Professional and Inspiring Atmosphere
+- The event was organized professionally at an iconic building in Ho Chi Minh City, creating a sense of professionalism right from the check-in.
+- Meeting industry experts from **AWS, VNG, and G-Asia Pacific** directly helped broaden my perspective on the industry.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+#### Real-world Perspectives from Predecessors
+- The sharing sessions from Alumni (SoftwareOne, Renova) were the most valuable part for me. They demonstrated that the path from student to AI/Cloud Engineer is entirely achievable with the right roadmap.
+- The stories of **"She in Tech"** and **"Daily Life of a Cloud Engineer"** provided an authentic and relatable view, removing initial apprehensions about job pressure.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### Community Connection
+- The event was not just for listening to presentations but also an occasion to network with like-minded students and mentors.
+- I could feel the energy and dynamism of the **AWS Builders** community in Vietnam.
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+#### Lessons Learned
+- Technology changes rapidly (especially GenAI); participating in programs like AWS First Cloud Journey is a golden opportunity to stay ahead.
+- **"Learn and Be Curious"**: The spirit of continuous learning is the key to success in Cloud & DevOps.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+#### Event Photos
+* Add your check-in photos at Bitexco and the hall atmosphere here
+> Overall, the Kick-off session gave me great motivation to be ready for the upcoming OJT, with the goal of not just completing the course but becoming a true Cloud Engineer.
