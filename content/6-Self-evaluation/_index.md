@@ -17,10 +17,10 @@ To provide an objective reflection of my internship journey, I would like to sel
 |-----|------------------------------------|---------------------------------------------------------------------------------------------|-----------|------|---------|
 | 1   | **Professional knowledge & skills** | Understanding of the field, application of knowledge in practice, tool proficiency, work quality |     ✅    | ☐   | ☐      |
 | 2   | **Learning ability**               | Ability to absorb new knowledge quickly                                                     |     ✅    | ☐   | ☐      |
-| 3   | **Proactiveness**                  | Self-research and taking initiative in tasks without waiting for instructions              |     ✅    | ☐   | ☐      |
+| 3   | **Proactiveness**                  | Self-research and taking initiative in tasks without waiting for instructions              |     ☐    | ✅   | ☐      |
 | 4   | **Sense of responsibility**       | Completing tasks on time with guaranteed quality                                            |     ✅    | ☐   | ☐      |
 | 5   | **Discipline**                     | Compliance with working hours, rules, and processes                                         |     ✅    | ☐   | ☐      |
-| 6   | **Willingness to improve**         | Openness to receiving feedback and continuously improving oneself                           |     ☐    | ✅   | ☐      |
+| 6   | **Willingness to improve**         | Openness to receiving feedback and continuously improving oneself                           |     ✅    | ☐   | ☐      |
 | 7   | **Communication**                  | Clear presentation of ideas and work reporting                                              |     ☐    | ✅   | ☐      |
 | 8   | **Team collaboration**             | Effective teamwork and active participation in the group                                    |     ✅    | ☐   | ☐      |
 | 9   | **Professional conduct**           | Respect toward colleagues, partners, and the working environment                            |     ✅    | ☐   | ☐      |
@@ -29,5 +29,9 @@ To provide an objective reflection of my internship journey, I would like to sel
 | 12  | **Overall performance**            | General evaluation of the entire internship period                                          |     ✅    | ☐   | ☐      |
 
 ### Areas for Improvement
-- Further strengthen problem-solving thinking and logical analysis skills.
-- Continuously practice daily and professional communication skills, especially in handling real situations.
+* Strengthen problem-solving skills.
+* Improve daily and professional communication skills, especially when handling situations.
+* Be more proactive in asking questions and clarifying requirements when information is unclear.
+* Enhance time management and prioritization of tasks.
+* Improve self-research abilities and attempt solutions before seeking support.
+* sDevelop clearer and more structured presentation skills when delivering work results.
