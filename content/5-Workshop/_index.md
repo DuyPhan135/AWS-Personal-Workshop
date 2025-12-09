@@ -22,4 +22,4 @@ Real-time messaging functionality is implemented through Socket.io, enabling eff
 3. [Infrastructure Setup with Terraform](5.3-Infra-Terraform/)
 4. [Build Docker Image and Deploy Backend](5.4-Docker-DeployBE/)
 5. [Deploy Frontend](5.5-DeployFE/)
-6. [Resource Cleanup](5.7-Cleanup/)
+6. [Resource Cleanup](5.6-Cleanup/)

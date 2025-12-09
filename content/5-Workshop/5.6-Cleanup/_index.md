@@ -66,3 +66,53 @@ This time, the command should complete successfully without any errors.
 ![Terraform Destroy Complete No Errors](/images/5-Workshop/5.6-Cleanup/tf-destroy-complete-no-error.png)
 
 After completing these steps, you have successfully cleaned up the backend service and all associated resources created by terraform.
+
+#### 4. Clean up the deployed Frontend service with Amplify.
+
+1. Access Amazon Amplify, select the App you deployed.
+
+![Clean Up Amplify](/images/5-Workshop/5.6-Cleanup/cleanupfe.png)
+
+2. From the left sidebar, select App Settings -> General settings.
+
+![Clean Up Amplify2](/images/5-Workshop/5.6-Cleanup/cleanupfe2.png)
+
+3. In the Delete app section, select the Delete app button.
+
+![Clean Up Amplify3](/images/5-Workshop/5.6-Cleanup/cleanupfe3.png)
+
+4. Enter "delete" to confirm you want to delete this App, then click the Delete app button.
+
+![Clean Up Amplify4](/images/5-Workshop/5.6-Cleanup/cleanupfe4.png)
+
+5. A notification confirms the App deletion was successful, so the Frontend App has been cleaned up.
+
+![Clean Up Amplify5](/images/5-Workshop/5.6-Cleanup/cleanupfe5.png)
+
+After completing the above steps, we have finished cleaning up the Frontend on the Amplify service, next we will clean up the Hosted Zone that we created for the Domain to point to this Hosted Zone.
+
+#### 5. Clean up the Hosted Zone in Route53.
+
+1. Access Route53 -> Hosted Zone, select the Hosted Zone you need to clean up.
+
+![Clean Up Hosted Zone](/images/5-Workshop/5.6-Cleanup/cleanuphostedzone.png)
+
+2. Select all Records except the 2 default Records which are NS and SOA. Select Delete records.
+
+![Clean Up Hosted Zone1](/images/5-Workshop/5.6-Cleanup/cleanuphostedzone1.png)
+
+3. Review and click Delete.
+
+![Clean Up Hosted Zone2](/images/5-Workshop/5.6-Cleanup/cleanuphostedzone2.png)
+
+4. After successful deletion, go back to Hosted Zone, select the Hosted Zone to be cleaned up, click Delete.
+
+![Clean Up Hosted Zone3](/images/5-Workshop/5.6-Cleanup/cleanuphostedzone3.png)
+
+5. Enter delete to confirm you want to delete this Hosted Zone, click Delete.
+
+![Clean Up Hosted Zone4](/images/5-Workshop/5.6-Cleanup/cleanuphostedzone4.png)
+
+Thus, the resources used on the AWS service have been successfully cleaned up.
+
+
