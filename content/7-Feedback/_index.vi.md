@@ -14,16 +14,13 @@ Môi trường làm việc rất thân thiện và cởi mở. Các thành viên
 Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
 
 **3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+Các nhiệm vụ mình đảm nhận có sự liên kết chặt chẽ với kiến thức đã được học ở trường, đồng thời mở ra nhiều lĩnh vực mới mà trước đây mình chưa có cơ hội tiếp cận. Điều này giúp mình vừa củng cố nền tảng chuyên môn, vừa tích lũy thêm kỹ năng thực tiễn, phục vụ tốt hơn cho định hướng nghề nghiệp sau này.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**  
 Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
 
 **5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
-
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau và luôn giữ tinh thần làm việc nghiêm túc nhưng thoải mái. Trong quá trình học tập và trao đổi kiến thức, mọi người luôn sẵn sàng hỗ trợ, chia sẻ kinh nghiệm mà không phân biệt vị trí hay vai trò. Điều đó giúp mình cảm nhận rõ ràng rằng dù chỉ là thực tập sinh, mình vẫn được xem như một phần của tập thể và có môi trường tốt để phát triển.
 
 ### Một số câu hỏi khác
 **Điều bạn hài lòng nhất trong thời gian thực tập?**
@@ -32,18 +29,16 @@ Là cảm giác được học hỏi, tiếp thu kiến thức mới mỗi ngày
 
 **Điều bạn nghĩ công ty cần cải thiện cho các thực tập sinh sau?**
 
-Có thể chuẩn bị trước một lộ trình học tập chi tiết hơn ngay từ tuần đầu (ví dụ: tuần 1-2 học tool gì, tuần 3-4 làm task nào…), để các bạn mới không bị “ngợp” trong 1-2 tuần đầu.
+Có thể thống nhất trước về cách làm workshop cho các bạn tránh việc thông tin không rõ ràng. Trong lần này thông tin mình nhận được về yêu cầu workshop từ mỗi người mỗi khác gây ra sự bối rối trong lúc làm việc. Mình hy vọng các anh/chị admin có thể thống nhất trước và thông báo 1 lần khi bước vào kỳ thực tập để dự án của chúng ta ngày càng phát triển hơn.
 
 **Nếu giới thiệu cho bạn bè, bạn có khuyên họ thực tập ở đây không? Vì sao?**  
 
-Chắc chắn là có. Ở đây không chỉ dạy kỹ thuật mà còn dạy cách làm việc, cách tư duy giải quyết vấn đề.
+Chắc chắn là có. Làm việc ở đây sẽ cho bản thân nhiều trải nghiệm về môi trường làm việc thực tế cũng như học được các kiến thức mới và liên kết với những gì được học ở trường
 
 ### Đề xuất & mong muốn
 
 **Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?**
 
-Cần thống nhất trong cách đưa ra quyết định của các mentor với nhau.
+Cần thống nhất trong cách đưa ra quyết định của các mentor với nhau. Như mình có nói ở trên mỗi mentor lại đưa ra các ý khác nhau khi nộp bài workshop. Trong đợt này mình nhận được hạn nộp trước proposal và kiến trúc là trước 22/11 nhưng lại được báo lại phải nộp trước đó vài ngày để được chấm. Với mình thì không là gì nhưng cần sự rõ ràng và thống nhất trong làm việc thì mới cùng nhau phát triển. 
 
-**Bạn có muốn tiếp tục chương trình này trong tương lai?**
-
-Chắc chắn có.
+Lời cuối rất cảm ơn mọi người đã tạo cơ hội cho mình được tham gia để học tập và trải nghiệm. Đây cũng chỉ là những lời góp ý của mình để các bạn sau sẽ có môi trường học tập tốt hơn. Chúc mọi người thành công trên con đường phát triển chương trình FCJ.
