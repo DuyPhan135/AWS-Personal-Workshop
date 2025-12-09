@@ -1,45 +1,41 @@
 ---
-title: "Sharing and Feedback"
+title: "Feedback & Suggestions"
 weight: 7
 chapter: false
-pre: "<b>7.</b> "
+pre: " <b> 7. </b> "
 ---
 
-### Overall Evaluation
+### General Evaluation
 
 **1. Working Environment**  
-The working environment is extremely friendly and open. All FCJ members are always willing to help whenever I face difficulties, even outside working hours. The workspace is tidy, comfortable, and helps me stay focused. However, I suggest adding a few more casual gatherings or team-bonding activities so everyone can get to know each other better.
+The working environment is very friendly and open. Members of the FCJ team are always willing to help whenever I encounter difficulties, even outside of working hours. The workspace is tidy and comfortable, helping me stay focused. However, I think it would be beneficial to have more bonding or social activities so everyone can understand each other better.
 
-**2. Support from Mentor & Team Admin**  
-My mentor provided very detailed guidance, explained concepts clearly when I didn’t understand, and always encouraged me to ask questions. The team admin was excellent in handling paperwork, preparing documents, and creating favorable conditions for my work. I truly appreciate that the mentor let me try and solve problems on my own first instead of giving direct answers.
+**2. Support from Mentor / Team Admin**  
+My mentor provided very detailed guidance, explained clearly whenever I didn’t understand, and always encouraged me to ask questions. The admin team supported administrative tasks, provided necessary documents, and created good conditions for me to work effectively. I truly appreciate that my mentor allowed me to try and solve problems on my own instead of giving me the answer directly.
 
-**3. Alignment between Tasks and Academic Background**  
-The tasks assigned were well-aligned with the knowledge I gained at university while also exposing me to completely new areas I had never encountered before. This combination allowed me to both reinforce my foundation and acquire practical real-world skills.
+**3. Alignment Between the Work and My Field of Study**  
+The tasks I was assigned closely aligned with the knowledge I learned at university, while also exposing me to new areas that I had never encountered before. This helped me reinforce my foundational knowledge and gain practical skills that will better support my future career direction.
 
-**4. Learning Opportunities & Skill Development**  
-Throughout the internship, I acquired many new skills such as using project management tools, teamwork, and professional communication in a corporate environment. My mentor also shared a lot of real-world experience that has helped me better shape my future career direction.
+**4. Opportunities for Learning & Skill Development**  
+During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. My mentor also shared valuable practical experiences that helped me gain clearer career orientation.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously yet remains cheerful. When there’s a tight deadline, the whole team pulls together and supports one another regardless of position. This made me feel like a true part of the team, even as “just an intern.”
-
-**6. Policies & Benefits for Interns**  
-The company provides internship allowances and offers flexible scheduling when needed. Being able to join internal training sessions for free is a huge plus.
+The company culture is very positive: everyone respects one another and maintains a working attitude that is serious yet comfortable. Throughout the learning and knowledge-sharing process, everyone is willing to support and share their experience regardless of position or role. This helped me clearly feel that even as an intern, I was treated as part of the team and had a supportive environment to grow.
 
 ### Additional Questions
 
-**What satisfied you the most during the internship?**  
-The feeling of learning and absorbing new knowledge every single day.
+**What are you most satisfied with during the internship?**  
+The feeling of being able to learn and absorb new knowledge every day.
 
 **What do you think the company should improve for future interns?**  
-It would be helpful to prepare a more detailed learning roadmap from the very first week (e.g., weeks 1–2: learn specific tools; weeks 3–4: work on certain tasks, etc.) so that newcomers don’t feel overwhelmed during the initial 1–2 weeks.
+It would be helpful to establish a clear and unified process for workshops to avoid unclear communication. This time, the information I received about workshop requirements varied from person to person, which caused confusion. I hope the admin team can align expectations in advance and make a single announcement at the beginning of the internship so the program can continue to improve.
 
-**If you were to recommend this internship to your friends, would you encourage them to join? Why?**  
-Absolutely yes! This program doesn’t only teach technical skills—it also teaches professional working habits and problem-solving mindset.
+**Would you recommend this internship to your friends? Why?**  
+Definitely yes. Interning here offers many valuable experiences in a real working environment, opportunities to learn new knowledge, and a chance to connect what we study in school with practical scenarios.
 
 ### Suggestions & Expectations
 
-**What suggestions do you have to improve the internship experience?**  
-It would be great if the mentors could align more consistently with each other when making decisions and giving instructions.
+**Do you have any suggestions to improve the internship experience?**  
+There should be more consistency in decision-making among mentors. As mentioned above, each mentor provided different feedback when reviewing the workshop assignments. In this round, I was first informed that the deadline for the proposal and architecture was November 22, but then later told that it needed to be submitted a few days earlier for grading. It's not a major issue for me, but having clarity and alignment would help everyone work more effectively and grow together.
 
-**Would you like to continue with this program in the future?**  
-Definitely yes!
+Lastly, I sincerely appreciate the opportunity to join the program to learn and gain experience. These are simply my suggestions so future interns can have an even better learning environment. I wish everyone success in continuing to grow the FCJ program.
