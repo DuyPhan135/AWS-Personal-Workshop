@@ -18,10 +18,10 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
 | 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅  | ☐  | ☐          |
 | 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ✅  | ☐  | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅  | ☐  | ☐          |
+| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ☐   | ✅  | ☐          |
 | 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅  | ☐  | ☐          |
 | 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ✅  | ☐  | ☐          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅ | ☐          |
+| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ✅   | ☐ | ☐          |
 | 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅ | ☐          |
 | 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅  | ☐  | ☐          |
 | 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅  | ☐  | ☐          |
@@ -33,3 +33,7 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 
 * Nâng cao tư duy giải quyết vấn đề.
 * Rèn luyện kỹ năng giao tiếp hằng ngày và trong công việc, đặc biệt khi xử lý tình huống.
+* Chủ động hơn trong việc đặt câu hỏi và xác nhận lại yêu cầu khi thông tin chưa rõ ràng.
+* Cải thiện khả năng quản lý thời gian và sắp xếp mức độ ưu tiên các nhiệm vụ.
+* Tăng cường kỹ năng tự nghiên cứu và tìm giải pháp trước khi nhờ hỗ trợ.
+* Rèn luyện kỹ năng trình bày kết quả làm việc rõ ràng, có cấu trúc hơn.
